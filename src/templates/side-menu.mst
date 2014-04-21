@@ -1,4 +1,4 @@
-{{#data_sources}}
+{{#data_sources_desc}}
     <li class="dropdown">
         <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-{{icon}}"></i> {{long_name}}</a>
         <ul class="dropdown-menu navmenu-nav">
@@ -8,5 +8,5 @@
             <li><a href="{{name}}/repositories.html"><i class="fa fa-code-fork"></i> Repositories</a></li>
         </ul>
     </li>
-{{/data_sources}}
+{{/data_sources_desc}}
 <li><a href="#"><i class="fa fa-info"></i> Data info</a></li>

@@ -1,4 +1,4 @@
-{{#data_sources}}
+{{#data_sources_desc}}
     <div class="tab-pane" id="{{name}}">
         <div class="row half-height">
             <div class="col-xs-6" id="{{name}}_contributors_evol">
@@ -20,4 +20,4 @@
             </div>
         </div>
     </div>
-{{/data_sources}}
+{{/data_sources_desc}}

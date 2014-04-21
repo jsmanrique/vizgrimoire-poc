@@ -239,6 +239,7 @@ $(document).ready(function(){
     
     widgets.done(function (template){
         var contributors_widget_content = Mustache.to_html(template, scm_contributors_evol_panel);
+        console.log($("#scm_contributors_evol"));
         $("#scm_contributors_evol").html(contributors_widget_content);
         
         var activity_widget_content = Mustache.to_html(template, scm_activity_evol_panel);

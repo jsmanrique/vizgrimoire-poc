@@ -1,7 +1,7 @@
-{{#data_sources}}
+{{#data_sources_desc}}
     <li><a href="#{{name}}" data-toogle="tab">
         <strong data-metric-type="number" data-metric-source="total_{{name}}_people">-</strong>
         <i class="fa fa-users"></i> in<br>
         <strong>-</strong> {{activity_name}}
     </a></li>
-{{/data_sources}}
+{{/data_sources_desc}}
