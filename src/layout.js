@@ -33,52 +33,32 @@ var sources = {
     ]
 };
 
-var scm_contributors_evol_panel = {
-    "panel_name": "Contributors",
-    "chart_type": "evolution",
-    "data-source": "scm_contributors"
-};
-
-var scm_activity_evol_panel = {
-    "panel_name": "Activity",
-    "chart_type": "evolution",
-    "data-source": "scm_activity"
-};
-
 $(document).ready(function(){
-    var half_height = Math.floor((window.screen.availHeight - window.screen.availTop-220)/2);
-    console.log(half_height);
-    $('.half-height').height(half_height);
-    $('.chart').height(half_height-100);
-    $('.rank').height(half_height-100);
+    var half_height = Math.floor($(document).height()/2);
 
     // TEMPLATES RENDERING
     // menu
-    var menu_tmpl = $("#menu-template").html();
-    var menu_content = Mustache.to_html(menu_tmpl, sources);
-    $("#main-menu").html(menu_content);
-
-    // tabs
-    var tabs_tmpl = $("#tabs-template").html();
-    var tabs_header_content = Mustache.to_html(tabs_tmpl, sources);
-    $("#data-sources-tabs").html(tabs_header_content);
-    // panes
-    var panes_tmpl = $("#tabs-panes-template").html();
-    var panes_content = Mustache.to_html(panes_tmpl, sources);
-    $("#data-sources-panes").html(panes_content);
-    // set active tab & pane and control switching
-    $("#data-sources-tabs li").first().addClass("active");
-    $("#data-sources-panes div").first().addClass("active");
-    $('#data-sources-tabs a').click(function (e) {
-      e.preventDefault();
-      $(this).tab('show');
+    $.get('templates/side-menu.mst', function(template){
+        var menu_content = Mustache.to_html(template, sources);
+        $("#main-menu").html(menu_content);
     });
 
-    // widgets
-    var widgets_tmpl = $("#metric-widget-template").html();
-    var contributors_widget_content = Mustache.to_html(widgets_tmpl, scm_contributors_evol_panel);
-    $("#scm_contributors_evol").html(contributors_widget_content);
-
-    var activity_widget_content = Mustache.to_html(widgets_tmpl, scm_activity_evol_panel);
-    $("#scm_activity_evol").html(activity_widget_content);
+    // tabs
+    $.get('templates/data-sources-tabs.mst', function(template) {
+        var tabs_header_content = Mustache.to_html(template, sources);
+        $("#data-sources-tabs").html(tabs_header_content);
+    });
+    // panes
+    $.get('templates/data-sources-panes.mst', function(template) {
+        var panes_content = Mustache.to_html(template, sources);
+        $("#data-sources-panes").html(panes_content);
+        // set active tab & pane and control switching
+        $("#data-sources-tabs li").first().addClass("active");
+        $("#data-sources-panes div").first().addClass("active");
+        $('#data-sources-tabs a').click(function (e) {
+            e.preventDefault();
+            $(this).tab('show');
+        });
+        $('.half-height').height(half_height);
+    });    
 });

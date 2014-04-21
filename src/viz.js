@@ -7,7 +7,7 @@ var companies = ['bizviz', 'prototypes', 'datas', 'riskybiz', 'ranges'];
 for (var i = 0; i < 100; i++) {
     // day backwards
     day = new Date(d.getTime() - (1000*60*60*24*7)*i).getTime();
-    console.log(day);
+    //console.log(day);
     contributors.push([day, Math.floor(Math.random()*5)+1]);
     d1.push([day, Math.floor(Math.random()*10)]);
     d2.push([day, Math.floor(Math.random()*10)]);
@@ -50,9 +50,9 @@ for (var i = 0; i < 5; i++){
 }
 
 var data = {
-    "contributors": contributors,
-    "activity": activity,
-    "developers": [
+    "scm_contributors": contributors,
+    "scm_activity": activity,
+    "scm_developers": [
         {
             "name": developers[1],
             "company": companies[1],
@@ -91,11 +91,24 @@ var data = {
     ]
 };
 
+var scm_contributors_evol_panel = {
+    "panel_name": "Contributors",
+    "chart_type": "evolution",
+    "data_source": "scm_contributors"
+};
+
+var scm_activity_evol_panel = {
+    "panel_name": "Activity",
+    "chart_type": "evolution",
+    "data_source": "scm_activity"
+};
+
 // END OF DATA MOCK //
 
 $(document).ready(function(){
     // draw singe line or multiline evolution over time chart
     var drawEvolChart = function(container, data) {
+        
         var options = {
             xaxis: {
                 mode: 'time',
@@ -132,7 +145,7 @@ $(document).ready(function(){
 
         // Selection event listener
         Flotr.EventAdapter.observe(container, 'flotr:select', function(area){
-            //console.log(area);
+            
             // Chart redraw with new boundaries
             Flotr.draw(container, data,{
                 xaxis : {
@@ -220,17 +233,31 @@ $(document).ready(function(){
 
         Flotr.draw(container, data, options);
     };
-
-    // draw data chart type evolution
-    var evolutionChartsContainers = $("[data-chart-type='evolution']");
-
-    $.each(evolutionChartsContainers, function(index, container){
-        var source = $(this).attr('data-source');
-        drawEvolChart(container, [data[source]]);
+    
+    // widgets
+    var widgets = $.get('templates/metric-widget.mst');
+    
+    widgets.done(function (template){
+        var contributors_widget_content = Mustache.to_html(template, scm_contributors_evol_panel);
+        $("#scm_contributors_evol").html(contributors_widget_content);
+        
+        var activity_widget_content = Mustache.to_html(template, scm_activity_evol_panel);
+        $("#scm_activity_evol").html(activity_widget_content);
+        
+        var evolutionChartsContainers = $("[data-figure-type='evolution']");
+        
+        var h = $('.half-height').height();
+        $('.chart').height(h-100);
+        $('.rank').height(h-100);
+        
+        $.each(evolutionChartsContainers, function(index, container){
+            var source = $(this).attr('data-source');
+            drawEvolChart(container, [data[source]]);
+        });
     });
 
     // draw demographic charts
-    var barChartsContainers = $("[data-chart-type='demography']");
+    var barChartsContainers = $("[data-figure-type='demography']");
 
     for (i = 0; i < barChartsContainers.length; i++){
         drawHorizontalBarsChart(barChartsContainers[i], [companies_activity], companies_labels);

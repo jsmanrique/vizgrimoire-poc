@@ -1,0 +1,12 @@
+{{#data_sources}}
+    <li class="dropdown">
+        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-{{icon}}"></i> {{long_name}}</a>
+        <ul class="dropdown-menu navmenu-nav">
+            <li><a href="{{name}}/"><i class="fa fa-tachometer"></i> Overview</a></li>
+            <li><a href="{{name}}/contributors.html"><i class="fa fa-users"></i> Contributors</a></li>
+            <li><a href="{{name}}/companies.html"><i class="fa fa-building-o"></i> Companies</a></li>
+            <li><a href="{{name}}/repositories.html"><i class="fa fa-code-fork"></i> Repositories</a></li>
+        </ul>
+    </li>
+{{/data_sources}}
+<li><a href="#"><i class="fa fa-info"></i> Data info</a></li>

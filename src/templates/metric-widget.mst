@@ -1,0 +1,18 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-xs-8">{{panel_name}}</div>
+            <div class="col-xs-4">
+                <div class="btn-toolbar pull-right" role="toolbar">
+                    <div class="btn-group btn-group-xs">
+                        <button type="button" class="btn btn-default"><span class="fa fa-gears"></span></button>
+                        <button type="button" class="btn btn-default"><span class="fa fa-expand"></span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body chart" data-figure-type="{{chart_type}}" data-source="{{data_source}}">
+        <img data-src="holder.js/100%x100%">
+    </div>
+</div>
