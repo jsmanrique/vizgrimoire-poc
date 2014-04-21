@@ -1,7 +1,7 @@
 vizgrimoire-poc
 ===============
 
-Proof of concept of ideas and technologies for VizGrimoire
+Proof of Concept (PoC) of ideas and technologies for [VizGrimoire dashboards](https://github.com/VizGrimoire)
 
 Currently using:
 * [Bootstrap 3.1.1](http://getbootstrap.com/)
