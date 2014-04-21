@@ -4,9 +4,9 @@ vizgrimoire-poc
 Proof of concept of ideas and technologies for VizGrimoire
 
 Currently using:
-* Bootstrap 3.1.1
-* jasny-bootstrap plugin for side menu
-* JQuery
-* Mustache
-* Flotr2
-* holder.js (only for mocks)
+* [Bootstrap 3.1.1](http://getbootstrap.com/)
+* [jasny-bootstrap off-canvas plugin](http://jasny.github.io/bootstrap/javascript/#offcanvas) for side menu
+* [JQuery](http://jquery.com/)
+* [Mustache.js](https://github.com/janl/mustache.js/)
+* [Flotr2](http://humblesoftware.com/flotr2/)
+* [holder.js](http://imsky.github.io/holder/) (only for mocks)
