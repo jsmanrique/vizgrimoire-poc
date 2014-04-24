@@ -1,0 +1,43 @@
+{
+    "projects": [
+        {
+            "name": "name1",
+            "url": "http://eclipse.com",
+            "parent": true,
+            "projects": [
+                {
+                    "name": "name11",
+                    "url": "http://eclipse.com",
+                    "parent": true,
+                    "projects": [
+                        {
+                            "name": "name111",
+                            "url": "http://eclipse.com",
+                            "parent": false
+                        },
+                        {
+                            "name": "name112",
+                            "url": "http://eclipse.com",
+                            "parent": false
+                        }   
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "name2",
+            "url": "http://eclipse.com",
+            "parent": false
+        },
+        {
+            "name": "name3",
+            "url": "http://eclipse.com",
+            "parent": false
+        },
+        {
+            "name": "name4",
+            "url": "http://eclipse.com",
+            "parent": false
+        }
+    ]
+}

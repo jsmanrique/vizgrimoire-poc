@@ -145,7 +145,7 @@ $(document).ready(function(){
     var data_sources = $.getJSON('data/data-sources.json');
     
     data_sources.done(function(sources) {
-        console.log(sources.project_name);
+        //console.log(sources.project_name);
 
         // TEMPLATES RENDERING
         // menu
@@ -195,7 +195,7 @@ $(document).ready(function(){
                         //console.log(data[source]);
                         var metric = $.getJSON(data[source]);
                         metric.done(function(content){
-                            console.log(content.data);
+                            //console.log(content.data);
                             drawEvolChart(container, [content.data]);
                         });
                     });
