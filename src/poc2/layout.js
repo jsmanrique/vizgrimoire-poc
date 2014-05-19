@@ -53,9 +53,8 @@ $(document).ready(function(){
 
         $.each(widgtes, function(index){
             var data_source = $(this).attr('data-source');
-            console.log(metrics[data_source].long_name);
             var title = metrics[data_source].long_name;
-            var widget_content = Mustache.to_html(template, {widget_title : title});
+            var widget_content = Mustache.to_html(template, {widget_title : title, id: data_source});
             $(this).html(widget_content);
             if ($(this).hasClass('evol')) {
                 var chart = $(this).find('.chart');
@@ -72,6 +71,9 @@ $(document).ready(function(){
                     chart.append(rank_content);
                 });
             }
+            $(this).find('.modal').on('shown.bs.modal', function (e) {
+                console.log(e);
+            });
         });
     });
 
