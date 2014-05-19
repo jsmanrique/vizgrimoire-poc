@@ -1,21 +1,21 @@
 {{#data_sources_desc}}
     <div class="tab-pane" id="{{name}}">
         <div class="row half-height">
-            <div class="col-xs-6" id="{{name}}_contributors_evol">
+            <div class="col-xs-6 metric_widget" id="{{name}}_contributors_evol">
                 {{long_name}} data loading...
             </div>
-            <div class="col-xs-6" id="{{name}}_activity_evol">
+            <div class="col-xs-6 metric_widget" id="{{name}}_activity_evol">
                 {{long_name}} data loading...
             </div>
         </div>
         <div class="row half-height">
-            <div class="col-xs-4" id="{{name}}_demography">
+            <div class="col-xs-4 metric_widget" id="{{name}}_demography">
                 {{long_name}} demography data loading...
             </div>
-            <div class="col-xs-4" id="{{name}}_top_contributors">
+            <div class="col-xs-4 metric_widget" id="{{name}}_top_contributors">
                 {{long_name}} top contributors data loading...
             </div>
-            <div class="col-xs-4" id="{{name}}_top_companies">
+            <div class="col-xs-4 metric_widget" id="{{name}}_top_companies">
                 {{long_name}} top companies data loading...
             </div>
         </div>

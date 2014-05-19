@@ -22,7 +22,7 @@
         {
             "name": "mls",
             "long_name": "Mailing lists",
-            "icon": "evenlope",
+            "icon": "envelope",
             "activity_name": "emails"
         },
         {
