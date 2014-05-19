@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grimoire dashboard (proposal)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- font awesome -->
+    <link href="css/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- jasny plugin for offcanvas menu -->
+    <link href="css/jasny-bootstrap.min.css" rel="stylesheet" media="screen">
+
+    <!-- custom CSS -->
+    <link href="css/bitergia.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+	<nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas navmenu-inverse" role="navigation">
+        <div class="input-group visible-xs" style="margin: 8px;">
+            <input type="text" class="form-control" placeholder="developer, company, etc.">
+            <span class="input-group-btn">
+                <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+            </span>
+        </div>
+		<a class="navmenu-brand" href="index.html">Project overview</a>
+
+		<ul class="nav navmenu-nav">
+			<li class="dropdown">
+				<a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-code"></i> Source Code Management</a>
+				<ul class="dropdown-menu navmenu-nav">
+					<li><a href="scm/contributors.html"><i class="fa fa-users"></i> Contributors</a></li>
+					<li><a href="scm/contributors.html"><i class="fa fa-building-o"></i> Companies</a></li>
+					<li><a href="scm/contributors.html"><i class="fa fa-code-fork"></i> Repositories</a></li>
+				</ul>
+			</li>
+			<li class="dropdown">
+				<a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-bug"></i> Issue Tracking</a>
+				<ul class="dropdown-menu navmenu-nav">
+					<li><a href="#"><i class="fa fa-users"></i> Contributors</a></li>
+					<li><a href="#"><i class="fa fa-building-o"></i> Companies</a></li>
+					<li><a href="#"><i class="fa fa-code-fork"></i> Repositories</a></li>
+				</ul>
+			</li>
+			<li class="dropdown">
+				<a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-ticket"></i> Code Reviewing</a>
+				<ul class="dropdown-menu navmenu-nav">
+					<li><a href="#"><i class="fa fa-users"></i> Contributors</a></li>
+					<li><a href="#"><i class="fa fa-building-o"></i> Companies</a></li>
+					<li><a href="#"><i class="fa fa-code-fork"></i> Repositories</a></li>
+				</ul>
+			</li>
+			<li class="dropdown">
+				<a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-envelope"></i> Mailing Lists</a>
+				<ul class="dropdown-menu navmenu-nav">
+					<li><a href="#"><i class="fa fa-users"></i> Contributors</a></li>
+					<li><a href="#"><i class="fa fa-building-o"></i> Companies</a></li>
+					<li><a href="#"><i class="fa fa-code-fork"></i> Repositories</a></li>
+				</ul>
+			</li>
+			<li class="dropdown">
+				<a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-comment"></i> IRC</a>
+				<ul class="dropdown-menu navmenu-nav">
+					<li><a href="#"><i class="fa fa-users"></i> Contributors</a></li>
+					<li><a href="#"><i class="fa fa-building-o"></i> Companies</a></li>
+					<li><a href="#"><i class="fa fa-code-fork"></i> Repositories</a></li>
+				</ul>
+			</li>
+			<li><a href="#"><i class="fa fa-info"></i> Data info</a></li>
+		</ul>
+	</nav>
+
+	<div class="navbar navbar-default navbar-fixed-top">
+		<button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
+			<span class="glyphicon glyphicon-list"></span>
+		</button>
+		<span class="navbar-brand">Grimoire dashboard</span>
+		<form action="contributor.html" class="navbar-form navbar-right hidden-xs" role="search" style="margin-right: 25px;">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="company, person, issue, etc.">
+          </div>
+          <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> Search</button>
+        </form>
+	</div>
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-md-12">
+                <ul class="nav nav-tabs nav-justified">
+                    <li class="active"><a href="#code" data-toggle="tab">
+                        <strong> - </strong><i class="fa fa-users"></i> in<br>
+                        <strong> - </strong> commits
+                    </a>
+                    </li>
+                    <li><a href="#issuetracking" data-toggle="tab">
+                        <strong> - </strong><i class="fa fa-users"></i> in<br>
+                        <strong> - </strong> issues
+                    </a>
+                    </li>
+                    <li><a href="#messages" data-toggle="tab">
+                        <strong> - </strong><i class="fa fa-users"></i> in<br>
+                        <strong> - </strong> emails
+                    </a>
+                    </li>
+                    <li><a href="#codereviews" data-toggle="tab">
+                        <strong> - </strong><i class="fa fa-users"></i> in<br>
+                        <strong> - </strong> reviews
+                    </a>
+                    </li>
+                    <li><a href="#irc" data-toggle="tab">
+                        <strong> - </strong><i class="fa fa-users"></i> in<br>
+                        <strong> - </strong> messages
+                    </a>
+                    </li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="code">
+                        <div class="row half-height">
+                            <div class="col-xs-6 widget evol" data-source="scm_contributors">
+                            </div>
+                            <div class="col-xs-6 widget evol" data-source="scm_commits">
+                            </div>
+                        </div>
+
+                        <div class="row half-height">
+                            <div class="col-xs-4 widget demography" data-source="scm_demography">
+                            </div>
+                            <div class="col-xs-4 widget rank" data-source="top_developers">
+                            </div>
+                            <div class="col-xs-4 widget rank" data-source="top_scm_companies">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="issuetracking">
+                    </div>
+                    <div class="tab-pane" id="messages">
+                    </div>
+                    <div class="tab-pane" id="codereviews">
+                    </div>
+                    <div class="tab-pane" id="irc">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-2.0.3.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- jasny plugin for offcanvas menu -->
+    <script src="js/jasny-bootstrap.min.js"></script>
+    <!-- mustache.js for templates rendering -->
+    <script src="js/mustache.js"></script>
+    <!-- holder -->
+    <script src="js/holder.js"></script>
+    <!-- flotr -->
+    <script src="js/flotr2.min.js"></script>
+    <script src="layout.js"></script>
+</body>
+</html>

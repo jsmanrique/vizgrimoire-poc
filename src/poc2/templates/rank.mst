@@ -1,0 +1,122 @@
+<ul class="nav nav-tabs nav-justified" style="font-size: 0.8em;">
+    <li class="active"><a href="#lastm-{{data_source}}" data-toggle="tab">Last Month</a></li>
+    <li><a href="#lastq-{{data_source}}" data-toggle="tab">Last Quarter</a></li>
+    <li><a href="#whole-{{data_source}}" data-toggle="tab">Whole history</a></li>
+</ul>
+<!-- Tab panes -->
+<div class="tab-content" style="font-size: 0.8em;">
+    <div class="tab-pane active" id="lastm-{{data_source}}">
+        <table class="table table-condensed table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Activity</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> - </td>
+                    <td> - </td>
+                    <td> - </td>
+                </tr>
+                <tr>
+                    <td> - </td>
+                    <td> - </td>
+                    <td> - </td>
+                </tr>
+                <tr>
+                    <td> - </td>
+                    <td> - </td>
+                    <td> - </td>
+                </tr>
+                <tr>
+                    <td> - </td>
+                    <td> - </td>
+                    <td> - </td>
+                </tr>
+                <tr>
+                    <td> - </td>
+                    <td> - </td>
+                    <td> - </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="tab-pane" id="lastq-{{data_source}}">
+        <table class="table table-condensed table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Activity</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> - </td>
+                    <td> - </td>
+                    <td> - </td>
+                </tr>
+                <tr>
+                    <td> - </td>
+                    <td> - </td>
+                    <td> - </td>
+                </tr>
+                <tr>
+                    <td> - </td>
+                    <td> - </td>
+                    <td> - </td>
+                </tr>
+                <tr>
+                    <td> - </td>
+                    <td> - </td>
+                    <td> - </td>
+                </tr>
+                <tr>
+                    <td> - </td>
+                    <td> - </td>
+                    <td> - </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="tab-pane" id="whole-{{data_source}}">
+        <table class="table table-condensed table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Activity</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> - </td>
+                    <td> - </td>
+                    <td> - </td>
+                </tr>
+                <tr>
+                    <td> - </td>
+                    <td> - </td>
+                    <td> - </td>
+                </tr>
+                <tr>
+                    <td> - </td>
+                    <td> - </td>
+                    <td> - </td>
+                </tr>
+                <tr>
+                    <td> - </td>
+                    <td> - </td>
+                    <td> - </td>
+                </tr>
+                <tr>
+                    <td> - </td>
+                    <td> - </td>
+                    <td> - </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

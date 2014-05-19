@@ -1,0 +1,23 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-xs-8">
+                {{widget_title}}
+            </div>
+            <div class="col-xs-4">
+                <div class="btn-toolbar pull-right" role="toolbar">
+                    <div class="btn-group btn-group-xs">
+                        <button type="button" class="btn btn-default"><span class="fa fa-gears"></span></button>
+                        <button type="button" class="btn btn-default"><span class="fa fa-expand"></span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-12 chart">
+            </div>
+        </div>
+    </div>
+</div>
