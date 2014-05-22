@@ -1,15 +1,28 @@
 var metrics = {
+    "scm_total_contributors" : {
+        "long_name": "Total contributors",
+        "desc": "Total number of contributors to the source code",
+        "value": "74"
+    },
+    "scm_total_commits" : {
+        "long_name": "Total commits",
+        "desc": "Total number of commits to the source code",
+        "value": "12523"
+    },
     "scm_contributors" : {
         "long_name": "Contributors",
-        "desc": "Contributors to the source code"
+        "desc": "Contributors to the source code",
+        "value": [[1,1],[2,5],[3,3],[4,7],[5,5]]
     },
     "scm_commits" : {
         "long_name": "Commits",
-        "desc": "Commits to the source code"
+        "desc": "Commits to the source code",
+        "value": [[1,10],[2,65],[3,40],[4,110],[5,60]]
     },
     "scm_demography" : {
         "long_name": "Demography",
-        "desc": "Developers demography"
+        "desc": "Developers demography",
+        "value": [["1 year", 1],["2 years", 2]]
     },
     "scm_companies" : {
         "long_name": "Companies",
@@ -32,11 +45,11 @@ var metrics = {
 $(document).ready(function(){
 
     var full_height = Math.floor($(document).height()) - 140;
-    var half_height = Math.floor(full_height/2);
+    var one_half = Math.floor(full_height/2);
     var one_third = Math.floor(full_height/3);
     var two_third = 2 * one_third;
 
-    $('.half-height').children().height(half_height);
+    $('.one-half').children().height(one_half);
     $('.full-height').children().height(full_height);
     $('.one-third').children().height(one_third);
     $('.two-third').children().height(two_third);
@@ -48,6 +61,13 @@ $(document).ready(function(){
     //      $(this).children().height(Math.floor(h/2));
     // });
 
+    // Filling .metric.numeric
+    var numeric_metrics_containers = $('.metric.numeric');
+    $.each(numeric_metrics_containers, function(index){
+        var data_source = $(this).attr('data-source');
+        Viz.fillNumericValue($(this), metrics[data_source].value);
+    });
+
     $.get('/templates/widget.mst', function(template){
         var widgtes = $('.widget');
 
@@ -56,25 +76,26 @@ $(document).ready(function(){
             var title = metrics[data_source].long_name;
             var widget_content = Mustache.to_html(template, {widget_title : title, id: data_source});
             $(this).html(widget_content);
-            if ($(this).hasClass('evol')) {
-                var chart = $(this).find('.chart');
-                chart.append('<img src="holder.js/100%x100%">');
+
+            // Filling widget with its associated data
+            var chart = $(this).find('.chart');
+            switch (true) {
+                case ($(this).hasClass('evol')):
+                    Viz.drawEvolChart(chart, [metrics[data_source].value]);
+                    break;
+                case ($(this).hasClass('demography')):
+                    Viz.drawDemographyChart(chart, metrics[data_source].value);
+                    break;
+                case ($(this).hasClass('rank')):
+                    Viz.drawRankTable(chart, data_source);
+                    break;
             }
-            if ($(this).hasClass('demography')) {
-                var chart = $(this).find('.chart');
-                chart.append('<img src="holder.js/100%x100%">');
-            }
-            if ($(this).hasClass('rank')) {
-                var chart = $(this).find('.chart');
-                $.get('/templates/rank.mst', function(template) {
-                    var rank_content = Mustache.to_html(template, {data_source : data_source});
-                    chart.append(rank_content);
-                });
-            }
+
+            // Modal for bigger charts
             $(this).find('.modal').on('shown.bs.modal', function (e) {
                 console.log(e);
+                Flotr.draw($('.modal-body'), [[1,1],[2,3]], {});
             });
         });
     });
-
 });

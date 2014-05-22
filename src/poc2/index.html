@@ -90,13 +90,15 @@
 	</div>
 
     <div class="container-fluid">
+        <div class="row1">
+        </div>
         <div class="row">
 
             <div class="col-md-12">
                 <ul class="nav nav-tabs nav-justified">
                     <li class="active"><a href="#code" data-toggle="tab">
-                        <strong> - </strong><i class="fa fa-users"></i> in<br>
-                        <strong> - </strong> commits
+                        <strong class="metric numeric" data-source="scm_total_contributors"> - </strong><i class="fa fa-users"></i> in<br>
+                        <strong class="metric numeric" data-source="scm_total_commits"> - </strong> commits
                     </a>
                     </li>
                     <li><a href="#issuetracking" data-toggle="tab">
@@ -123,14 +125,14 @@
                 <!-- Tab panes -->
                 <div class="tab-content">
                     <div class="tab-pane active" id="code">
-                        <div class="row half-height">
+                        <div class="row one-half">
                             <div class="col-xs-6 widget evol" data-source="scm_contributors">
                             </div>
                             <div class="col-xs-6 widget evol" data-source="scm_commits">
                             </div>
                         </div>
 
-                        <div class="row half-height">
+                        <div class="row one-half">
                             <div class="col-xs-4 widget demography" data-source="scm_demography">
                             </div>
                             <div class="col-xs-4 widget rank" data-source="top_developers">
@@ -153,17 +155,18 @@
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery-2.0.3.min.js"></script>
+    <script src="/js/jquery-2.0.3.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
     <!-- jasny plugin for offcanvas menu -->
-    <script src="js/jasny-bootstrap.min.js"></script>
+    <script src="/js/jasny-bootstrap.min.js"></script>
     <!-- mustache.js for templates rendering -->
-    <script src="js/mustache.js"></script>
+    <script src="/js/mustache.js"></script>
     <!-- holder -->
-    <script src="js/holder.js"></script>
+    <script src="/js/holder.js"></script>
     <!-- flotr -->
-    <script src="js/flotr2.min.js"></script>
-    <script src="layout.js"></script>
+    <script src="/js/flotr2.min.js"></script>
+    <script src="/viz.js"></script>
+    <script src="/layout.js"></script>
 </body>
 </html>
