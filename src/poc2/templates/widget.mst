@@ -8,7 +8,7 @@
                 <div class="btn-toolbar pull-right" role="toolbar">
                     <div class="btn-group btn-group-xs">
                         <!-- <button type="button" class="btn btn-default"><span class="fa fa-gears"></span></button> -->
-                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#zoom_{{id}}"><span class="fa fa-expand"></span></button>
+                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#zoom_{{data_source}}"><span class="fa fa-expand"></span></button>
                     </div>
                 </div>
             </div>
@@ -21,15 +21,14 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="zoom_{{id}}" role="dialog" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="zoom_{{data_source}}" role="dialog" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <span>{{widget_title}}</span>
             </div>
-            <div class="modal-body">
-                <p>One fine body&hellip;</p>
+            <div class="modal-body" data-source="{{data_source}}">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -9,10 +9,10 @@ Viz = (function () {
             container.html(value);
         }
     };
-    var drawEvolChart = function(container, value){
+    var drawEvolChart = function(container, value, height){
         var graphContainer = $('<div/>').addClass('graphContainer');
-        graphContainer.height(100);
         container.append(graphContainer);
+        graphContainer.height(height-60);
 
         var options = {
             xaxis: {
@@ -68,7 +68,7 @@ Viz = (function () {
                     position: 'nw',
                 },
                 grid: {
-                    verticalLines: false,
+                    verticalLines: true,
                     color: '#999',
                     outlineWidth: 1,
                     outline: 's'
@@ -98,16 +98,21 @@ Viz = (function () {
         });
     };
 
-    var drawDemographyChart = function(container, value){
+    var drawDemographyChart = function(container, value, height){
         //container.append('<img src="holder.js/100%x100%">');
-        labels = [];
+        var labels = [];
+        var data = [];
 
         $.each(value, function(index){
-            labels.push(value[index][0]);
+            labels.push([index+1, value[index][1]]);
+            data.push([value[index][0], index+1]);
         });
 
+        console.log("l:"+labels);
+        console.log("d:"+data);
+
         var graphContainer = $('<div/>').addClass('graphContainer');
-        graphContainer.height(100);
+        graphContainer.height(height - 60);
         container.append(graphContainer);
 
         var options = {
@@ -145,7 +150,7 @@ Viz = (function () {
             },
         };
 
-        Flotr.draw(graphContainer[0], value, options);
+        Flotr.draw(graphContainer[0], data, options);
     };
 
     var drawRankTable = function (container, data_source) {

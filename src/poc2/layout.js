@@ -22,7 +22,7 @@ var metrics = {
     "scm_demography" : {
         "long_name": "Demography",
         "desc": "Developers demography",
-        "value": [["1 year", 1],["2 years", 2]]
+        "value": [[5, "1 year", 1],[2, "2 years"]]
     },
     "scm_companies" : {
         "long_name": "Companies",
@@ -74,17 +74,18 @@ $(document).ready(function(){
         $.each(widgtes, function(index){
             var data_source = $(this).attr('data-source');
             var title = metrics[data_source].long_name;
-            var widget_content = Mustache.to_html(template, {widget_title : title, id: data_source});
+            var widget_content = Mustache.to_html(template, {widget_title : title, data_source : data_source});
             $(this).html(widget_content);
 
             // Filling widget with its associated data
             var chart = $(this).find('.chart');
+            console.log(chart);
             switch (true) {
                 case ($(this).hasClass('evol')):
-                    Viz.drawEvolChart(chart, [metrics[data_source].value]);
+                    Viz.drawEvolChart(chart, [metrics[data_source].value], $(this).height());
                     break;
                 case ($(this).hasClass('demography')):
-                    Viz.drawDemographyChart(chart, metrics[data_source].value);
+                    Viz.drawDemographyChart(chart, metrics[data_source].value, $(this).height());
                     break;
                 case ($(this).hasClass('rank')):
                     Viz.drawRankTable(chart, data_source);
@@ -93,8 +94,10 @@ $(document).ready(function(){
 
             // Modal for bigger charts
             $(this).find('.modal').on('shown.bs.modal', function (e) {
-                console.log(e);
-                Flotr.draw($('.modal-body'), [[1,1],[2,3]], {});
+                var ds = $(this).find('.modal-body').attr('data-source');
+                var v = metrics[ds].value;
+                var c = $(this).find('.modal-body');
+                Viz.drawEvolChart(c, v, two_third);
             });
         });
     });
