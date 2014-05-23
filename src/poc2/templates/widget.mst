@@ -8,19 +8,18 @@
                 <div class="btn-toolbar pull-right" role="toolbar">
                     <div class="btn-group btn-group-xs">
                         <!-- <button type="button" class="btn btn-default"><span class="fa fa-gears"></span></button> -->
+                        {{#zoom}}
                         <button type="button" class="btn btn-default" data-toggle="modal" data-target="#zoom_{{data_source}}"><span class="fa fa-expand"></span></button>
+                        {{/zoom}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-xs-12 chart">
-            </div>
-        </div>
+    <div class="panel-body" data-type="{{data_type}}">
     </div>
 </div>
+{{#zoom}}
 <div class="modal fade" id="zoom_{{data_source}}" role="dialog" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -28,7 +27,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <span>{{widget_title}}</span>
             </div>
-            <div class="modal-body" data-source="{{data_source}}">
+            <div class="modal-body" data-type="chart" data-source="{{data_source}}">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -36,3 +35,4 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+{{/zoom}}

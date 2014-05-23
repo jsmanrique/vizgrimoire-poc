@@ -1,0 +1,26 @@
+<ul class="nav nav-tabs nav-justified">
+{{#periods}}
+    <li><a href="#{{id}}" data-toggle="tab">{{period_name}}</a></li>
+{{/periods}}
+</ul>
+<!-- Tab panes -->
+<div class="tab-content">
+    {{#periods}}
+    <div class="tab-pane table" id="{{id}}">
+        <table class="table table-condensed table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Activity</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+            {{#val}}
+            <tr {{^active}}class="inactive"{{/active}}><td>{{name}}</td><td>{{activity}}</td><td>{{#active}}Active{{/active}}{{^active}}Inactive{{/active}}</td></tr>
+            {{/val}}
+            </tbody>
+        </table>
+    </div>
+    {{/periods}}
+</div>

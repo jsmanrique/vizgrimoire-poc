@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
     <title>Grimoire dashboard (proposal)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
@@ -95,7 +97,7 @@
                 <ul class="nav nav-tabs nav-justified">
                     <li class="active"><a href="#code" data-toggle="tab">
                         <strong class="metric numeric" data-source="scm_total_contributors"> - </strong><i class="fa fa-users"></i> in<br>
-                        <strong class="metric numeric" data-source="scm_total_commits"> - </strong> commits
+                        <strong class="metric numeric" data-source="scm_total_activity"> - </strong> commits
                     </a>
                     </li>
                     <li><a href="#issuetracking" data-toggle="tab">
@@ -123,18 +125,24 @@
                 <div class="tab-content">
                     <div class="tab-pane active" id="code">
                         <div class="row one-half">
-                            <div class="col-xs-6 widget evol" data-source="scm_contributors">
+                            <div class="col-xs-6">
+                                <div class="widget" data-type="evol" data-source="scm_evol_contributors">
+                                </div>
                             </div>
-                            <div class="col-xs-6 widget evol" data-source="scm_commits">
+                            <div class="col-xs-6">
+                                <div class="widget" data-type="evol" data-source="scm_evol_activity">
+                                </div>
                             </div>
                         </div>
 
                         <div class="row one-half">
-                            <div class="col-xs-4 widget demography" data-source="scm_demography">
+                            <div class="col-xs-6">
+                                <div class="widget" data-type="demography" data-source="scm_demography">
+                                </div>
                             </div>
-                            <div class="col-xs-4 widget rank" data-source="top_developers">
-                            </div>
-                            <div class="col-xs-4 widget rank" data-source="top_scm_companies">
+                            <div class="col-xs-6">
+                                <div class="widget" data-type="tops" data-source="scm_top_contributors">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -150,6 +158,13 @@
             </div>
         </div>
     </div>
+    <footer>
+        <div class="col-xs-12" style="text-align:center;">
+            <a href="http://bitergia.com"><img src="/img/bitergia-logo.png" height="20" alt="Bitergia"></a><br/>
+            © 2012-2014
+            <a href="http://creativecommons.org/licenses/by-sa/3.0/es/deed.es"><img src="/img/cc-by-sa.png"></a>
+        </div>
+    </footer>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="/js/jquery-2.0.3.min.js"></script>

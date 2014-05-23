@@ -1,0 +1,82 @@
+{
+    "scm_total_contributors" :
+        {
+            "long_name": "Total contributors",
+            "desc": "Total number of contributors to the source code",
+            "val" : "74"
+        },
+    "scm_total_activity" : {
+            "long_name": "Total commits",
+            "desc": "Total number of commits to the source code",
+            "val": "12523"
+        },
+    "scm_evol_contributors" : {
+            "long_name": "Contributors",
+            "desc": "Contributors to the source code",
+            "val": {
+                "evol": [[1,1],[2,5],[3,3],[4,7],[5,5]],
+                "periods" : [
+                    {"period": "365", "val": "1350", "diff": "15", "sign": "up"},
+                    {"period": "30", "val": "450", "diff": "-5", "sign": "down"},
+                    {"period": "7",  "val": "50", "diff": "23", "sign": "up"}
+                ]
+            }
+        },
+    "scm_evol_activity" : {
+            "long_name": "Commits",
+            "desc": "Changes to the source code",
+            "val": {
+                "evol": [[1,10],[2,35],[3,30],[4,70],[5,50]],
+                "periods" : [
+                    {"period": "365", "val": "1350", "diff": "15", "sign": "up"},
+                    {"period": "30", "val": "450", "diff": "-5", "sign": "down"},
+                    {"period": "7",  "val": "50", "diff": "23", "sign": "up"}
+                ]
+            }
+        },
+    "scm_demography" : {
+            "long_name": "Demography",
+            "desc": "Developers demography",
+            "val": [[50, 50, "1 year"],[40, 25, "2 years"], [60, 15, "3 years"], [30, 10, "4 years"], [15, 2, "5 years"]]
+        },
+    "scm_top_contributors" : {
+            "long_name": "Top developers",
+            "desc": "Top developers to the source code",
+            "val": {
+                    "periods": [
+                        {"id": "lm_scm_contrib", "period_name": "Last Month", "val": [
+                            {"name":"John", "activity": 500, "active": true},
+                            {"name":"Jane", "activity": 240, "active": true},
+                            {"name":"Bill", "activity": 120, "active": false},
+                            {"name":"Alex", "activity": 100, "active": true},
+                            {"name":"Mary", "activity": 500, "active": true}
+                            ]
+                        },
+                        {"id": "lq_scm_contrib", "period_name": "Last Quarter", "val": [
+                            {"name":"John", "activity": 500, "active": true},
+                            {"name":"Bill", "activity": 240, "active": true},
+                            {"name":"Jane", "activity": 120, "active": false},
+                            {"name":"Alex", "activity": 100, "active": true},
+                            {"name":"Mary", "activity": 500, "active": true}
+                            ]
+                        },
+                        {"id": "ly_scm_contrib", "period_name": "Last Year", "val": [
+                            {"name":"John", "activity": 500, "active": true},
+                            {"name":"Jane", "activity": 240, "active": true},
+                            {"name":"Bill", "activity": 120, "active": false},
+                            {"name":"Alex", "activity": 100, "active": true},
+                            {"name":"Mary", "activity": 500, "active": true}
+                            ]
+                        },
+                        {"id": "all_scm_contrib", "period_name": "Last Month", "val": [
+                            {"name":"John", "activity": 500, "active": true},
+                            {"name":"Jane", "activity": 240, "active": true},
+                            {"name":"Bill", "activity": 120, "active": false},
+                            {"name":"Alex", "activity": 100, "active": true},
+                            {"name":"Mary", "activity": 500, "active": true}
+                            ]
+                        }
+                    ]
+            }
+        }
+}

@@ -9,17 +9,37 @@ Viz = (function () {
             container.html(value);
         }
     };
-    var drawEvolChart = function(container, value, height){
-        var graphContainer = $('<div/>').addClass('graphContainer');
-        container.append(graphContainer);
-        graphContainer.height(height-60);
+
+    var drawEvolChart = function(container, val){
+        var r = $('<div/>').addClass('row');
+        if (val.periods) {
+            var chart = $('<div/>').addClass('col-xs-9');
+            var trends = $('<div/>').addClass('col-xs-3').addClass('trends');
+            $.get('/templates/trends.mst', function(t){
+                var t_content = Mustache.to_html(t, val);
+                trends.html(t_content);
+            });
+            r.append(chart);
+            r.append(trends);
+            var data_chart = [val.evol];
+            chart.height(container.parents('.one-half').height()-50);
+        } else {
+            var chart = $('<div/>').addClass('col-xs-12');
+            r.append(chart);
+            var data_chart = [val];
+            chart.height($(document).height()-250);
+        }
+
+        container.html(r);
 
         var options = {
             xaxis: {
+                color: '#333',
                 //mode: 'time',
                 //timeformat: '%d'
             },
             yaxis: {
+                color: '#333',
                 min: 0,
                 noTicks: 3,
                 autoscale: false
@@ -38,26 +58,29 @@ Viz = (function () {
             mouse: {
                 track: true,
                 //trackFormatter: function(obj){d = new Date(+obj.x); return d.toLocaleDateString() +' : '+ obj.y;},
-                position: 'n'
+                //position: 'n',
+                relative: true
             },
             selection : {
                 mode : 'xy'
             }
         };
         // Drawing the chart
-        Flotr.draw (graphContainer[0],value,options);
+        Flotr.draw (chart[0],data_chart,options);
 
         // Selection event listener
-        Flotr.EventAdapter.observe(graphContainer[0], 'flotr:select', function(area){
+        Flotr.EventAdapter.observe(chart[0], 'flotr:select', function(area){
             //console.log(area);
             // Chart redraw with new boundaries
-            Flotr.draw(graphContainer[0], value,{
+            Flotr.draw(chart[0], data_chart,{
                 xaxis : {
+                    color: '#333',
                     min : area.x1,
                     max : area.x2,
                     //mode : 'time'
                 },
                 yaxis : {
+                    color: '#333',
                     min : area.y1,
                     max : area.y2,
                     noTicks: 2,
@@ -76,7 +99,8 @@ Viz = (function () {
                 mouse: {
                     track: true,
                     //trackFormatter: function(obj){d = new Date(+obj.x); return d.toLocaleDateString() +' : '+ obj.y;},
-                    position: 'n'
+                    //position: 'n',
+                    relative: true
                 },
                 lines: {
                     show: true,
@@ -91,41 +115,42 @@ Viz = (function () {
         });
 
         // Click event listener
-        Flotr.EventAdapter.observe(graphContainer[0], 'flotr:click', function(point){
+        Flotr.EventAdapter.observe(chart[0], 'flotr:click', function(point){
             //console.log(point);
             // Chart redraw with original data
-            Flotr.draw(graphContainer[0], value, options);
+            Flotr.draw(chart[0], data_chart, options);
         });
     };
 
-    var drawDemographyChart = function(container, value, height){
-        //container.append('<img src="holder.js/100%x100%">');
-        var labels = [];
-        var data = [];
+    var drawDemographyChart = function(container, val){
 
-        $.each(value, function(index){
-            labels.push([index+1, value[index][1]]);
-            data.push([value[index][0], index+1]);
+        var labels = [];
+        var births = [];
+        var deads = [];
+
+        $.each(val, function(index){
+            labels.push([index+1, val[index][2]]);
+            births.push([val[index][0], index+1]);
+            deads.push([val[index][1], index+1]);
         });
 
-        console.log("l:"+labels);
-        console.log("d:"+data);
+        var r = $('<div/>').addClass('row');
+        var graphContainer = $('<div/>').addClass('col-xs-12');
+        r.append(graphContainer);
 
-        var graphContainer = $('<div/>').addClass('graphContainer');
-        graphContainer.height(height - 60);
-        container.append(graphContainer);
+        container.html(graphContainer);
+        graphContainer.height(container.parents('.one-half').height()-50);
 
         var options = {
             xaxis: {
                 min: 0,
                 noTicks: 4,
                 autoscale: false,
-                color: '#999',
+                color: '#333',
             },
             yaxis : {
                 ticks: labels,
-                //ticks: [],
-                color: '#999',
+                color: '#333',
                 min : null,
                 autoscaleMargin : 1
             },
@@ -144,19 +169,25 @@ Viz = (function () {
             bars: {
                 show: true,
                 horizontal: true,
-                barWidth: 0.5,
+                barWidth: 1,
                 fill: true,
                 fillColor: null
             },
         };
 
-        Flotr.draw(graphContainer[0], data, options);
+        Flotr.draw(graphContainer[0], [births, deads], options);
     };
 
-    var drawRankTable = function (container, data_source) {
-        $.get('/templates/rank.mst', function(template) {
-            var rank_content = Mustache.to_html(template, {data_source : data_source});
-            container.append(rank_content);
+    var drawTopsTable = function (container, val) {
+        var r = $('<div/>').addClass('row');
+        var topsContainer = $('<div/>').addClass('col-xs-12');
+        r.append(topsContainer);
+        container.append(r);
+        $.get('/templates/tops.mst', function(t) {
+            var tops_content = Mustache.to_html(t, val);
+            topsContainer.append(tops_content);
+            topsContainer.find($('li')).first().addClass("active");
+            topsContainer.find($('.tab-pane')).first().addClass("active");
         });
     };
 
@@ -164,7 +195,7 @@ Viz = (function () {
         fillNumericValue : fillNumericValue,
         drawEvolChart : drawEvolChart,
         drawDemographyChart : drawDemographyChart,
-        drawRankTable : drawRankTable
+        drawTopsTable : drawTopsTable
     };
 
 })();

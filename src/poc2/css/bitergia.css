@@ -39,6 +39,9 @@ body {
     box-shadow: none;
 }
 
+.panel-heading {
+    padding: 4px;
+}
 .green {
     color: #5e5;
 }
@@ -48,4 +51,25 @@ body {
 
 .input-group .form-control {
     width: 80%;
+}
+
+.trends {
+    text-align: center;
+    font-size: small;
+}
+.trends p {
+    margin: 0;
+}
+.up {
+    color: green;
+}
+.down {
+    color: red;
+}
+.inactive {
+    color: #aaa;
+}
+
+footer {
+    margin-top: 2em;
 }
