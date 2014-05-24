@@ -11,6 +11,14 @@ $(document).ready(function(){
     $('.one-third').children().height(one_third);
     $('.two-third').children().height(two_third);
 
+    // Adding spinner icons
+    var w = $('.widget');
+    var divspinner = $('<div/>').css('text-align','center');
+    var spin = $('<i/>').addClass('fa fa-icon fa-spinner fa-5x fa-spin text-muted');
+    divspinner.append(spin);
+    w.append(divspinner);
+
+
     // Getting metrics
     var metrics = $.getJSON('/data/metrics.json');
 

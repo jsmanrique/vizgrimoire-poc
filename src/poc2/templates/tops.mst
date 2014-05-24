@@ -17,7 +17,7 @@
             </thead>
             <tbody>
             {{#val}}
-            <tr {{^active}}class="inactive"{{/active}}><td>{{name}}</td><td>{{activity}}</td><td>{{#active}}Active{{/active}}{{^active}}Inactive{{/active}}</td></tr>
+            <tr {{^active}}class="text-muted"{{/active}}><td>{{name}}</td><td>{{activity}}</td><td>{{#active}}<i class="fa fa-icon fa-smile-o up"></i> Active{{/active}}{{^active}}<i class="fa fa-icon fa-frown-o down"></i> Inactive{{/active}}</td></tr>
             {{/val}}
             </tbody>
         </table>
