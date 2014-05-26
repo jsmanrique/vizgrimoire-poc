@@ -1,0 +1,8 @@
+<li class="list-group-item"><a data-toggle="collapse" href="#{{project_short_name}}">
+  <i class="fa fa-plus-square-o"></i></a> {{project_long_name}} <a class="pull-right" href="/projects/{{project_short_name}}/">View dashboard</a>
+  <ul id="{{project_short_name}}" class="collapse in">
+  {{#projects}}
+    {{> moreprojects}}
+  {{/projects}}
+  </ul>
+</li>

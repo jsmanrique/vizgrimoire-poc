@@ -1,0 +1,15 @@
+{
+    "project_short_name": "grimoire",
+    "project_long_name": "Grimoire",
+    "projects": [
+        {
+            "project_short_name": "vizgrimoire", "project_long_name": "VizGrimoire",
+            "projects": [
+                {"project_short_name": "vizgrimoirer", "project_long_name": "VizGrimoire-R", "projects": []},
+                {"project_short_name": "vizgrimoirelib", "project_long_name": "VizGrimoire-lib", "projects": []},
+                {"project_short_name": "vizgrimoirejs", "project_long_name": "VizGrimoireJS", "projects": []}
+            ]
+        },
+        {"project_short_name": "metricsgrimoire", "project_long_name": "MetricsGrimoire", "projects": []}
+    ]
+}

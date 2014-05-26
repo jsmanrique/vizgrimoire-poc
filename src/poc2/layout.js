@@ -18,6 +18,28 @@ $(document).ready(function(){
     divspinner.append(spin);
     w.append(divspinner);
 
+    // Set project level
+    // var dl = document.location;
+    // console.log(dl);
+    // console.log(dl.pathname);
+    var projects = $.getJSON('/data/projects.json');
+
+    projects.done(function(p){
+        $('#ProjectName').html('<a href="/index.html">'+p.project_long_name+'</a>');
+        $('title').html(p.project_long_name + ' dashboard by Bitergia');
+        p.sp_number = p.projects.length;
+        $.each(p.projects, function(index,p){
+            p.sp_number = p.projects.length;
+        });
+        $.get('/templates/projectsmapmenu.mst', function(t){
+            var sp_menu_content = Mustache.to_html(t,p);
+            $('#sp').html(sp_menu_content);
+        });
+        $.get('/templates/projectsmaptree.mst', function(t){
+            var sp_tree_content = Mustache.to_html(t,p, {moreprojects: t});
+            $('#projectsmap').html(sp_tree_content);
+        });
+    });
 
     // Getting metrics
     var metrics = $.getJSON('/data/metrics.json');
@@ -33,7 +55,7 @@ $(document).ready(function(){
         });
 
         // Filling widgets frames
-        $.get('templates/widget.mst', function(t){
+        $.get('/templates/widget.mst', function(t){
             var w = $('.widget');
             $.each(w, function(){
                 var dt = $(this).attr('data-type');
@@ -58,6 +80,9 @@ $(document).ready(function(){
                         break;
                     case (pb.attr('data-type')=='tops'):
                         Viz.drawTopsTable(pb, m[ds].val);
+                        break;
+                    case (pb.attr('data-type')=='listdata'):
+                        Viz.drawMultiData(pb, m[ds]);
                         break;
                 }
 

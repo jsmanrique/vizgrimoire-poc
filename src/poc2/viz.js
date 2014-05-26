@@ -191,11 +191,31 @@ Viz = (function () {
         });
     };
 
+    var drawMultiData = function (container, val) {
+        $.get('/templates/multidata.mst', function(t){
+            var multidata_content = Mustache.to_html(t, val);
+            container.html(multidata_content);
+
+            // handlers for input[type]=check
+            var checkall = container.find('.checkall');
+            var check = container.find('.check');
+            checkall.on('click', function(){
+                check.attr('checked','checked');
+            });
+            check.on('click', function(){
+                console.log(check.index($(this)));
+                console.log($(this).val());
+            });
+        });
+
+    };
+
     return {
         fillNumericValue : fillNumericValue,
         drawEvolChart : drawEvolChart,
         drawDemographyChart : drawDemographyChart,
-        drawTopsTable : drawTopsTable
+        drawTopsTable : drawTopsTable,
+        drawMultiData : drawMultiData
     };
 
 })();
