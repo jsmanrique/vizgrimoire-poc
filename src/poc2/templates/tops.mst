@@ -1,10 +1,10 @@
-<ul class="nav nav-tabs nav-justified">
+<ul class="nav nav-tabs nav-justified top-tab">
 {{#periods}}
     <li><a href="#{{id}}" data-toggle="tab">{{period_name}}</a></li>
 {{/periods}}
 </ul>
 <!-- Tab panes -->
-<div class="tab-content">
+<div class="tab-content top-panes">
     {{#periods}}
     <div class="tab-pane table" id="{{id}}">
         <table class="table table-condensed table-striped">

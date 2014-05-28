@@ -52,14 +52,29 @@ body {
 .input-group .form-control {
     width: 80%;
 }
-
 .trends {
     text-align: center;
-    font-size: small;
+    overflow-y: scroll;
+}
+.row-h-1 .trends, .row-h-2 .trends, .row-h-3 .trends, .row-h-4 .trends {
+    font-size: 80%;
+    line-height: 1.1em;
 }
 .trends p {
     margin: 0;
 }
+.trends .values {
+    border-bottom: thin solid gray;
+    margin-bottom: 0.25em;
+}
+
+.row-h-1 .top-tab, .row-h-2 .top-tab, .row-h-3 .top-tab, .row-h-4 .top-tab {
+    font-size: 65%;
+}
+.row-h-1 .top-panes, .row-h-2 .top-panes, .row-h-3 .top-panes, .row-h-4 .top-panes {
+    font-size: 60%;
+}
+
 .up {
     color: green;
 }

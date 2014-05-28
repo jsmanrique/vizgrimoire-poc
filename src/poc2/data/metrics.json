@@ -68,7 +68,7 @@
                             {"name":"Mary", "activity": 500, "active": true}
                             ]
                         },
-                        {"id": "all_scm_contrib", "period_name": "Last Month", "val": [
+                        {"id": "all_scm_contrib", "period_name": "All", "val": [
                             {"name":"John", "activity": 500, "active": true},
                             {"name":"Jane", "activity": 240, "active": true},
                             {"name":"Bill", "activity": 120, "active": false},

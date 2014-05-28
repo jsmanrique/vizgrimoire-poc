@@ -1,5 +1,4 @@
 {{#periods}}
-<p><strong>Last {{period}} days:</strong></p>
-<p>{{val}} </i><span class="{{sign}}"> <i class="fa fa-arrow-{{sign}}"></i> {{diff}}%</span></p>
-<hr/>
+<p><strong>Last {{period}}d:</strong></p>
+<p class="values">{{val}} </i><span class="{{sign}}"> <i class="fa fa-arrow-{{sign}}"></i> {{diff}}%</span></p>
 {{/periods}}

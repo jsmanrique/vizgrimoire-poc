@@ -15,10 +15,10 @@ Viz = (function () {
         if (val.periods) {
             var chart = $('<div/>').addClass('col-xs-9');
             var trends = $('<div/>').addClass('col-xs-3').addClass('trends');
-            // $.get('/templates/trends.mst', function(t){
-            //     var t_content = Mustache.to_html(t, val);
-            //     trends.html(t_content);
-            // });
+            $.get('/templates/trends.mst', function(t){
+                var t_content = Mustache.to_html(t, val);
+                trends.html(t_content);
+            });
             r.append(chart);
             r.append(trends);
             var data_chart = [val.evol];
@@ -180,7 +180,7 @@ Viz = (function () {
 
     var drawTopsTable = function (container, val) {
         var r = $('<div/>').addClass('row');
-        var topsContainer = $('<div/>').addClass('col-xs-12');
+        var topsContainer = $('<div/>').addClass('col-xs-12').css('overflow-y','scroll');;
         r.append(topsContainer);
         container.append(r);
         $.get('/templates/tops.mst', function(t) {
