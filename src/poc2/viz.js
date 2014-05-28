@@ -15,14 +15,14 @@ Viz = (function () {
         if (val.periods) {
             var chart = $('<div/>').addClass('col-xs-9');
             var trends = $('<div/>').addClass('col-xs-3').addClass('trends');
-            $.get('/templates/trends.mst', function(t){
-                var t_content = Mustache.to_html(t, val);
-                trends.html(t_content);
-            });
+            // $.get('/templates/trends.mst', function(t){
+            //     var t_content = Mustache.to_html(t, val);
+            //     trends.html(t_content);
+            // });
             r.append(chart);
             r.append(trends);
             var data_chart = [val.evol];
-            chart.height(container.parents('.one-half').height()-50);
+            chart.height(container.height());
         } else {
             var chart = $('<div/>').addClass('col-xs-12');
             r.append(chart);
@@ -139,7 +139,8 @@ Viz = (function () {
         r.append(graphContainer);
 
         container.html(graphContainer);
-        graphContainer.height(container.parents('.one-half').height()-50);
+        console.log(container.height());
+        graphContainer.height(container.height());
 
         var options = {
             xaxis: {

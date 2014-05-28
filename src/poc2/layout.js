@@ -1,6 +1,7 @@
 
 $(document).ready(function(){
 
+    // Setting div height
     var full_height = Math.floor($(document).height()) - 150;
     var one_half = Math.floor(full_height/2);
     var one_third = Math.floor(full_height/3);
@@ -10,6 +11,11 @@ $(document).ready(function(){
     $('.full-height').children().height(full_height);
     $('.one-third').children().height(one_third);
     $('.two-third').children().height(two_third);
+
+    // PROTO for another idea (index2.html)
+    var rdsi = $('.row.data-source-info');
+    var hdsi = Math.floor(($(document).height() - 30*rdsi.length) / rdsi.length);
+    rdsi.children().height(hdsi);
 
     // Adding spinner icons
     var w = $('.widget');
@@ -70,12 +76,13 @@ $(document).ready(function(){
 
                 // Filling widgets with data
                 var pb = $(this).find('.panel-body');
-                pb.height($(this).height-60);
+                pb.height($(this).parents('.row').height()-45);
                 switch (true) {
                     case (pb.attr('data-type')=='evol'):
                         Viz.drawEvolChart(pb, m[ds].val);
                         break;
                     case (pb.attr('data-type')=='demography'):
+                        //pb.height($(this).parents('.row').height()-50);
                         Viz.drawDemographyChart(pb, m[ds].val);
                         break;
                     case (pb.attr('data-type')=='tops'):
