@@ -13,9 +13,15 @@ $(document).ready(function(){
     $('.two-third').children().height(two_third);
 
     // PROTO for another idea (index2.html)
-    var rdsi = $('.row.data-source-info');
-    var hdsi = Math.floor(($(document).height() - 30*rdsi.length) / rdsi.length);
-    rdsi.children().height(hdsi);
+    // var rdsi = $('.row.data-source-info');
+    // var hdsi = Math.floor(($(document).height() - 30*rdsi.length) / rdsi.length);
+    // rdsi.children().height(hdsi);
+
+    // PROTO for new row heights idea (to make it similar to bootstrap col width definition)
+    var r1 = Math.floor($(document).height() / 10);
+    for (var i=1; i<11; i++){
+        $('.row.r-'+i).children().height(r1*i-15*i);
+    }
 
     // Adding spinner icons
     var w = $('.widget');
