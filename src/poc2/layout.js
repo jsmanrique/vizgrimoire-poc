@@ -18,10 +18,28 @@ $(document).ready(function(){
     // rdsi.children().height(hdsi);
 
     // PROTO for new row heights idea (to make it similar to bootstrap col width definition)
-    var r1 = Math.floor($(document).height() / 10);
+    // Using this, height is relative to $(document).height
+    var row_height = Math.floor($(document).height() / 10);
     for (var i=1; i<11; i++){
-        $('.row.r-'+i).children().height(r1*i-15*i);
+        $('.row.row-h-'+i).children().height(row_height*i-15*i);
     }
+
+    // code for similar idea with row-h-* height relative to the height of its contanier
+    // $.each($("[class*=' row-h-']"), function(i,r){
+    //     console.log($(this).parent().height());
+    //     var ph = $(this).parent().height();
+    //     var cla = $(this).attr('class');
+    //     ca = cla.split(' ');
+
+    //     $.each(ca, function(i,s){
+
+    //         if (s.search(/row-h-/)===0){
+    //             var hl = parseInt(s.substr(6),10);
+    //             console.log(hl, Math.floor(ph/hl));
+    //             $(this).children().height(Math.floor(ph/hl));
+    //         }
+    //     });
+    // });
 
     // Adding spinner icons
     var w = $('.widget');

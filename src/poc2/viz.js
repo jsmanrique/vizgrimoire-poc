@@ -139,7 +139,6 @@ Viz = (function () {
         r.append(graphContainer);
 
         container.html(graphContainer);
-        console.log(container.height());
         graphContainer.height(container.height());
 
         var options = {
