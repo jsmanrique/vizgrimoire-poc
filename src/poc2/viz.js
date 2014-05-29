@@ -27,7 +27,7 @@ Viz = (function () {
             var chart = $('<div/>').addClass('col-xs-12');
             r.append(chart);
             var data_chart = [val];
-            chart.height($(document).height()-250);
+            chart.height($(document).height()-300);
         }
 
         container.html(r);
@@ -180,7 +180,7 @@ Viz = (function () {
 
     var drawTopsTable = function (container, val) {
         var r = $('<div/>').addClass('row');
-        var topsContainer = $('<div/>').addClass('col-xs-12').css('overflow-y','scroll');;
+        var topsContainer = $('<div/>').addClass('col-xs-12');
         r.append(topsContainer);
         container.append(r);
         $.get('/templates/tops.mst', function(t) {

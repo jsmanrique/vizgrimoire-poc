@@ -54,6 +54,7 @@ $(document).ready(function(){
     // console.log(dl.pathname);
     var projects = $.getJSON('/data/projects.json');
 
+    // Projects treemap mockup
     projects.done(function(p){
         $('#ProjectName').html('<a href="/index.html">'+p.project_long_name+'</a>');
         $('title').html(p.project_long_name + ' dashboard by Bitergia');
@@ -106,10 +107,10 @@ $(document).ready(function(){
                         Viz.drawEvolChart(pb, m[ds].val);
                         break;
                     case (pb.attr('data-type')=='demography'):
-                        //pb.height($(this).parents('.row').height()-50);
                         Viz.drawDemographyChart(pb, m[ds].val);
                         break;
                     case (pb.attr('data-type')=='tops'):
+                        pb.parents('.widget').parent().css('overflow-x','hidden').css('overflow-y', 'auto');
                         Viz.drawTopsTable(pb, m[ds].val);
                         break;
                     case (pb.attr('data-type')=='listdata'):

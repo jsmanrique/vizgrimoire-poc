@@ -9,15 +9,9 @@ body {
 	float: left;
 	margin-left: .5em;
 }
+
 .chart {
     height: 100%;
-}
-
-.panel-body table{
-    font-size: 0.9em;
-    height: 100%;
-    overflow-y: scroll;
-    overflow-x: hidden;
 }
 
 .modal-download .modal-body {
@@ -54,7 +48,6 @@ body {
 }
 .trends {
     text-align: center;
-    overflow-y: scroll;
 }
 .row-h-1 .trends, .row-h-2 .trends, .row-h-3 .trends, .row-h-4 .trends {
     font-size: 80%;
@@ -69,10 +62,10 @@ body {
 }
 
 .row-h-1 .top-tab, .row-h-2 .top-tab, .row-h-3 .top-tab, .row-h-4 .top-tab {
-    font-size: 65%;
+    font-size: 70%;
 }
 .row-h-1 .top-panes, .row-h-2 .top-panes, .row-h-3 .top-panes, .row-h-4 .top-panes {
-    font-size: 60%;
+    font-size: 75%;
 }
 
 .up {
