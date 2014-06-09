@@ -17,5 +17,5 @@ Usage
 Dowload and launch a simple web server on `src` folder. You can use something as simple as:
 
 ```bash
-src/poc2$ python -m SimpleHTTPServer 8000
+src$ python -m SimpleHTTPServer 8000
 ```
