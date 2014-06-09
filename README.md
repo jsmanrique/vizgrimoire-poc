@@ -11,15 +11,11 @@ Currently using:
 * [Flotr2](http://humblesoftware.com/flotr2/)
 * [holder.js](http://imsky.github.io/holder/) (only for mocks)
 
-There are currently to main proposals:
-* `src/poc1` is just an old one (currently deprecated)
-* `src/poc2` is the most updated one (use it as the official one)
-
 Usage
 -----
 
-Dowload and launch a simple web server on src/poc2 folder. You can use something as simple as:
+Dowload and launch a simple web server on `src folder`. You can use something as simple as:
 
-`
+```bash
 src/poc2$ python -m SimpleHTTPServer 8000
-`
+```
