@@ -128,4 +128,10 @@ $(document).ready(function(){
             });
         });
     });
+
+    // panel body vissibility
+    var panels = $('.panel');
+    panels.on('click', $('.panel-heading'), function(){
+        $(this).children('.panel-body').fadeToggle();
+    });
 });
