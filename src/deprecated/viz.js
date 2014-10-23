@@ -1,8 +1,8 @@
 // Vizualization module
 
-Viz = (function () {
-    var fillNumericValue = function(container, value) {
-        v = +value;
+var Viz = (function () {
+    var fillNumericValue = function (container, value) {
+        var v = +value;
         if (v > 999) {
             container.html(Math.floor(v / 1000)+'.'+Math.floor(Math.floor(v / 100)%10)+'K');
         } else {

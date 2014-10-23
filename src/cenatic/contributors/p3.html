@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Data visualization pilot">
+    <meta name="author" content="Manrique Lopez">
+    <link rel="shortcut icon" href="">
+    <title>Piloto VizData</title>
+
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <!-- Jasny bootstrap -->
+    <link href="../vendors/jasny-bootstrap/css/jasny-bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../resources/css/style.css" rel="stylesheet" media="screen">
+    <!-- JQuery UI css required by Rickshaw -->
+    <link href="../vendors/jquery-ui-1.11.1/jquery-ui.min.css" rel="stylesheet" media="screen">
+    <link href="../vendors/jquery-ui-1.11.1/jquery-ui.theme.min.css" rel="stylesheet" media="screen">
+    <!-- Rickshaw -->
+    <link href="../vendors/rickshaw/rickshaw.min.css" rel="stylesheet" media="screen">
+
+  </head>
+  <body>
+    <div class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm">
+      <a class="navmenu-brand visible-md visible-lg" href="#">OpenNebula</a>
+      <ul class="nav navmenu-nav">
+        <li><a href="../index.html"><span class="glyphicon glyphicon-home"></span> Summary</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-align-left"></span> Code management<b class="caret"></b></a>
+            <ul class="dropdown-menu navmenu-nav">
+              <li><a href="../scm/index.html">Summary</a></li>
+              <li><a href="../scm/contributors.html">Contributors</a></li>
+              <li><a href="../scm/companies.html">Companies</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-tags"></span> Issues management<b class="caret"></b></a>
+            <ul class="dropdown-menu navmenu-nav">
+              <li><a href="../its/index.html">Summary</a></li>
+              <li><a href="../its/contributors.html">Contributors</a></li>
+              <li><a href="../its/companies.html">Companies</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-comment"></span> Mailing management<b class="caret"></b></a>
+            <ul class="dropdown-menu navmenu-nav">
+              <li><a href="../mls/index.html">Summary</a></li>
+              <li><a href="../mls/contributors.html">Contributors</a></li>
+              <li><a href="../mls/companies.html">Companies</a></li>
+            </ul>
+        </li>
+        <li class="divider"></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-eye-open"></span> Studies<b class="caret"></b></a>
+            <ul class="dropdown-menu navmenu-nav">
+              <li><a href="../studies/timezones.html">Timezones analysis</a></li>
+              <li><a href="../studies/demographic.html">Contributors demography</a></li>
+            </ul>
+        </li>
+        <li class="divider"></li>
+        <li><a href="data/">Data sources</a></li>
+      </ul>
+    </div>
+
+    <div class="navbar navbar-default navbar-fixed-top hidden-md hidden-lg">
+      <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">OpenNebula</a>
+    </div>
+
+    <div class="container-fluid">
+      <div class="page-header">
+        <h1>OpenNebula <small>/ Rubén S. Montero</small></h1>
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-heading"><span class="panel-title">Contribution</span></div>
+            <div class="panel-body grimoire-widget" data-type="chart" data-source="scm-commits-people-3|its-closed-people-3|mls-sent-people-3">
+              <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+    <!-- == SCRIPTS == -->
+    <!-- Base: jquery + bootstrap + jasny-bootstrap -->
+    <script src="../vendors/jquery-2.1.1.min.js"></script>
+    <script src="../vendors/bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+    <script src="../vendors/jasny-bootstrap/js/jasny-bootstrap.min.js"></script>
+
+    <!-- Viz: D3 + Rickshaw + NVD3 -->
+    <!-- D3 -->
+    <script src="../vendors/d3.min.js"></script>
+    <!-- Rickshaw -->
+    <script src="../vendors/jquery-ui-1.11.1/jquery-ui.min.js"></script>
+    <script src="../vendors/rickshaw/rickshaw.min.js"></script>
+
+    <script src="../resources/js/viz.js"></script>
+    <script src="../resources/js/data.js"></script>
+    <script src="../resources/js/script.js"></script>
+  </body>
+</html>

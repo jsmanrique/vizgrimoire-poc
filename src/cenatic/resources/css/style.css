@@ -1,0 +1,123 @@
+html, body {
+  height: 100%;
+}
+body {
+  padding: 50px 0 0 0;
+}
+
+.navmenu {
+  padding-top: 50px;
+}
+
+.navbar {
+  display: block;
+  text-align: center;
+}
+.navbar-brand {
+  display: inline-block;
+  float: none;
+}
+.navbar-toggle {
+  position: absolute;
+  float: left;
+  margin-left: 15px;
+}
+
+.container {
+  max-width: 100%;
+}
+
+/* glyphicon animation */
+.glyphicon-refresh-animate {
+    -animation: spin .7s infinite linear;
+    -webkit-animation: spin2 .7s infinite linear;
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+
+.panel, .panel-heading, .panel-body {
+  border: none;
+  box-shadow: none;
+}
+.down {color: red; font-size: x-small;}
+.up {color: green; font-size: x-small;}
+.right {color: gray;  font-size: x-small;}
+/* rickshaw charts */
+
+.grimoire-widget {
+  position: relative;
+  padding: 20px;
+}
+.chart {
+        position: relative;
+        left: 35px;
+}
+
+.y_axis {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 35px;
+}
+
+.slider {
+  position: relative;
+  left: 35px;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+.x_axis {
+	position: relative;
+	left: 40px;
+	height: 40px;
+}
+
+.rickshaw_graph .x_tick .title {
+    bottom: -24px !important;
+    left: -18px !important;
+}
+
+.rickshaw_legend {
+  font-size: 9px !important;
+  color: #000 !important;
+  background: #fff !important;
+  padding: 0 !important;
+  position: relative;
+  left: -25px;
+}
+
+.offset_form {
+  font-size: 9px;
+}
+
+.map {
+  height: 300px;
+  with: 100%;
+}
+
+@media (min-width: 1px) {
+  .navbar-toggle {
+    display: block !important;
+  }
+}
+
+@media (min-width: 992px) {
+  body {
+    padding: 0 0 0 300px;
+  }
+  .navmenu {
+    padding-top: 0;
+  }
+  .navbar {
+    display: none !important; /* IE8 fix */
+  }
+}
