@@ -303,6 +303,7 @@ var Viz = (function () {
     });
 
     var hoverDetail = new Rickshaw.Graph.HoverDetail( {
+        yFormatter: function (y) {return y},
         graph: graph,
     } );
 

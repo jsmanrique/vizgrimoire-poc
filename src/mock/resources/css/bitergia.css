@@ -1,0 +1,10 @@
+body {
+    background: #eee;
+    padding-top: 70px;
+}
+
+.navbar-toggle {
+	display: block;
+	float: left;
+	margin-left: .5em;
+}

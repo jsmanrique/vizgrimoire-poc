@@ -27,6 +27,9 @@ body {
   max-width: 100%;
 }
 
+/* fix for jasny issue in dropdowns off canvas menu */
+.navmenu-nav.dropdown-menu { position: relative; }
+
 /* glyphicon animation */
 .glyphicon-refresh-animate {
     -animation: spin .7s infinite linear;
