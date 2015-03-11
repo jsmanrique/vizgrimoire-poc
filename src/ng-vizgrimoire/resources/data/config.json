@@ -1,0 +1,10 @@
+{
+    'name': 'test project',
+    'logoUrl': '/resources/img/logo.png', 
+    'analysis' : [
+        {
+            'data-source': 'scm',
+            'analysis': ['contributors', 'repositories', 'domains']
+        }
+    ]
+}

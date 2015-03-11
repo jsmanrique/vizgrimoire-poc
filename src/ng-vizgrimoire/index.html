@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html ng-app="VizGrimoire">
+<head>
+    <meta charset="utf-8"> 
+    <title>Grimoire dashboard (proposal)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="vendors/bootstrap.min.css">
+    
+    <!-- font awesome css -->
+    <link href="vendors/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- jasny plugin css
+    <link href="vendors/jasny-bootstrap/css/jasny-bootstrap.min.css" rel="stylesheet"> -->
+    
+    <!-- custom css -->
+    <link href="resources/css/bitergia.css" rel="stylesheet">
+    
+    <script src="vendors/angular.min.js"></script>
+    <script src="vendors/angular-route.min.js"></script>
+    <script src="vendors/ui-bootstrap-tpls-0.12.1.min.js"></script>
+    <!-- <script src="vendors/jquery-2.0.3.min.js"></script>
+    <script src="vendors/jasny-bootstrap/js/jasny-bootstrap.min.js"></script> -->
+</head>
+
+<body>
+   <!-- side menu -->
+   
+  <!-- top navbar -->
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <button type="button" class="btn btn-default navbar-btn navbar-left">
+            <i class="fa fa-bars"></i>
+        </button>
+        
+        <span class="navbar-brand" ng-controller="navbarBrandController"><a href="./index.html#/">{{project.name}}</a></span>
+        
+        <form action="#" class="navbar-form navbar-right hidden-xs hidden-sm" role="search">
+            <div class="form-group">
+                 <input type="text" class="form-control" placeholder="company, person, issue, etc.">
+            </div>
+            <button type="submit" class="btn btn-default"><i class="fa fa-search"></i> Search</button>
+        </form>
+        
+        <div ng-controller="daterangeDropdownController" class="navbar-btn navbar-right">
+            <div class="btn-group" dropdown>
+                <button type="button" class="btn btn-default">
+                    <i class="fa fa-calendar"></i>
+                </button>
+                <button type="button" class="btn btn-default">
+                    Last 3 months
+                </button>
+                <button type="button" class="btn btn-default dropdown-toggle" dropdown-toggle>
+                    <span class="caret"></span>
+                    <span class="sr-only">Split button</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Last year</a></li>
+                    <li><a href="#">Whole history</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Custom</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+<div class="container-fluid">
+    <div ng-view></div>
+</div>
+
+   
+    <!-- scripts -->
+    <script src="resources/js/app.js"></script>
+    <script src="resources/js/controllers.js"></script>
+    <script src="resources/js/directives.js"></script>
+</body>
+</html>

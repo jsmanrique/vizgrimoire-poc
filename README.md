@@ -18,6 +18,10 @@ There are currently two PoC in the `src`folder:
     * [Rickshaw](http://code.shutterstock.com/rickshaw/)
     * [OpenLayers](http://openlayers.org/)
 
+* **mock**
+
+* **ng-vizgrimoire**
+
 Usage
 -----
 
