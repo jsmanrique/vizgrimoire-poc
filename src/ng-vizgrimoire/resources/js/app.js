@@ -1,4 +1,4 @@
-var VizGrimoire = angular.module('VizGrimoire', ['ngRoute', 'ui.bootstrap', 'snap', 'vizgrimoireControllers', 'vizgrimoireDirectives']);
+var VizGrimoire = angular.module('VizGrimoire', ['ngRoute', 'ui.bootstrap', 'snap', 'gridshore.c3js.chart', 'vizgrimoireControllers', 'vizgrimoireDirectives']);
 
 VizGrimoire.config(['$routeProvider', function($routeProvider){
     $routeProvider.when(

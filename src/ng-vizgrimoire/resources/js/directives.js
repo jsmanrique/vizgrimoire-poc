@@ -19,7 +19,8 @@ vizgrimoireDirectives.directive('vgwidget', function(){
         templateUrl: 'resources/templates/vgwidget.html',
         scope: {},
         controller: function($scope, $location, $routeParams) {
-            $scope.vgwidget = {title: $location.$$path, help: 'Lorem ipsum ad his scripta blandit partiendo'};
+            chartId = "chart" + Math.floor((Math.random()*1000)+1);
+            $scope.vgwidget = {title: $location.$$path, id: chartId, help: 'Lorem ipsum ad his scripta blandit partiendo'};
             
         }
     };

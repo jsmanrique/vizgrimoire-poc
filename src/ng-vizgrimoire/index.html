@@ -17,6 +17,8 @@
     <!-- snap css -->
     <link href="vendors/angular-snap.min.css" rel="stylesheet">
     
+    <link href="vendors/c3/c3.min.css" rel="stylesheet">
+    
     <!-- custom css -->
     <link href="resources/css/bitergia.css" rel="stylesheet">
     
@@ -26,6 +28,10 @@
     
     <script src="vendors/snap.min.js"></script>
     <script src="vendors/angular-snap.min.js"></script>
+    
+    <script src="vendors/d3.min.js"></script>
+    <script src="vendors/c3/c3.min.js"></script>
+    <script src="vendors/c3-angular.min.js"></script>
     
     <!-- <script src="vendors/jquery-2.0.3.min.js"></script>
     <script src="vendors/jasny-bootstrap/js/jasny-bootstrap.min.js"></script> -->
@@ -85,7 +91,17 @@
  
     <div class="container-fluid">
         <div ng-view ng-cloak></div>
+    
+        <c3chart bindto-id="chart1">
+            <chart-column column-id="data1"
+                    column-values="30,200,100,400,150,250"
+                    column-type="bar"/>
+            <chart-column column-id="data2"
+                    column-values="300,5000,1500,700,250,2050"
+                    column-type="bar"/>
+        </c3chart>
     </div>
+    
 </div>
    
     <!-- scripts -->
