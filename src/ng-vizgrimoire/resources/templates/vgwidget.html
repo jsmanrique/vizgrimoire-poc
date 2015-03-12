@@ -2,12 +2,12 @@
     <div class="panel-heading">
         <div class="row">
             <div class="col-xs-8">
-                {{vgwidget.title}}
+                {{widget.title}}
             </div>
             <div class="col-xs-4">
                 <div class="btn-toolbar pull-right" role="toolbar">
                     <div class="btn-group btn-group-xs">
-                        <i class="fa fa-info-circle" tooltip-placement="bottom" tooltip="{{vgwidget.id}}"></i>
+                        <i class="fa fa-info-circle" tooltip-placement="bottom" tooltip="{{widget.help}}"></i>
                     </div>
                 </div>
             </div>
@@ -15,13 +15,14 @@
     </div>
     <div class="panel-body">
         <div class="text-center"><i class="fa fa-spinner fa-pulse fa-3x"></i></div>
-        <c3chart>
+        
+        <!--<c3chart bindto-id="{{vgwidget.id}}">
             <chart-column column-id="data1"
                     column-values="30,200,100,400,150,250"
                     column-type="bar"/>
             <chart-column column-id="data2"
                     column-values="300,5000,1500,700,250,2050"
                     column-type="bar"/>
-        </c3chart>
+        </c3chart>-->
     </div>
 </div>

@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-xs-12">
+        <alert>
+            <p>Location: {{location.$$path}}</p>
+            <p>Params: {{route}}</p>
+        </alert>
+    </div>
+</div>
+
+<ol class="breadcrumb">
+    <li><a href="#/">Home</a></li>
+</ol>
+
+<div class="row">
+
+</div>
+<div class="row" ng-repeat="datasource in config.datasource">
+    <div class="col-md-4 col-lg-3">
+        <vgwidget type="onion" ds="{{datasource.id}}"></vgwidget>
+        <vgwidget type="activityagg" ds="{{datasource.id}}"></vgwidget>
+    </div>
+    <div class="col-md-8 col-lg-9">
+        <vgwidget type="activityts" ds="{{datasource.id}}"></vgwidget>
+    </div>
+</div>
