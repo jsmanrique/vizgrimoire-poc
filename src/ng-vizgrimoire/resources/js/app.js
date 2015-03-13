@@ -1,10 +1,10 @@
-var VizGrimoire = angular.module('VizGrimoire', ['ngRoute', 'ui.bootstrap', 'snap', 'gridshore.c3js.chart', 'vizgrimoireControllers', 'vizgrimoireDirectives']);
+var app = angular.module('ngVizGrimoire', ['ngRoute', 'ui.bootstrap', 'snap', 'gridshore.c3js.chart', 'vizgrimoireControllers', 'vizgrimoireDirectives']);
 
-VizGrimoire.config(['$routeProvider', function($routeProvider){
+app.config(['$routeProvider', function($routeProvider){
     $routeProvider.when(
         '/', {
-            templateUrl: 'resources/templates/overview.html',
-            controller: 'overviewController'
+            templateUrl: 'resources/templates/home.html',
+            controller: 'generalController'
         }
     ).when(
         '/:datasource', {
@@ -20,11 +20,6 @@ VizGrimoire.config(['$routeProvider', function($routeProvider){
         '/:datasource/:categories/:id', {
             templateUrl: 'resources/templates/datasource-overview.html',
             controller: 'generalController'
-        }
-    ).when(
-        '/test',{
-            templateUrl: 'resources/templates/vgwidget.html',
-            controller: 'VGWidgetController'
         }
     ).otherwise({
         redirectTo: '/'

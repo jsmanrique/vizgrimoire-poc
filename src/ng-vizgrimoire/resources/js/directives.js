@@ -19,14 +19,6 @@ vizgrimoireDirectives.directive('vgwidget', function () {
         templateUrl: 'resources/templates/vgwidget.html',
         scope: {
             widget: '=type'
-        },
-        controller: function ($scope, $location, $routeParams) {
-            //var chartId = "chart" + Math.floor((Math.random() * 1000) + 1);
-            //$scope.widget = {title: 'Contributors', help: 'Contributors distribution'};
-            $scope.onion = {title: 'Contributors', help: 'Contributors distribution'};
-            $scope.activityagg = {title: 'Activity', help: 'Aggregated activity'};
-            $scope.activityts = {title: 'Activity', help: 'Activity over the time'};
-            //$scope.vgwidget = {title: $location.$$path, id: chartId, help: 'Lorem ipsum ad his scripta blandit partiendo'};
         }
     };
 });

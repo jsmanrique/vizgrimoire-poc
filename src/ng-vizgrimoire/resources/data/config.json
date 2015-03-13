@@ -1,10 +1,9 @@
-{
-    "name": "Test project",
-    "logoUrl": "http://bitergia.com/img/bitergia.png",
-    "datasources": [
-        {"id": "scm", 
-         "name": "Source Code Management",
-         "analysis": ["repositories", "contributors", "domains"]
-        }
-    ]
+{"name": "Test project",
+"logoUrl": "http://bitergia.com/img/bitergia.png",
+"datasources": [
+    {"id": "scm", 
+     "name": "Source Code Management",
+     "analysis": ["repositories", "contributors", "domains"]
+    }
+]
 }

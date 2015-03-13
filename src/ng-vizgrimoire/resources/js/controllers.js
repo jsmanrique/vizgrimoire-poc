@@ -5,6 +5,7 @@ vizgrimoireControllers.controller('navbarBrandController', ['$scope', '$http', f
     $http.get('resources/data/config.json').success(function(data){
         $scope.config = data;
     });
+    
 }]);
 
 vizgrimoireControllers.controller('daterangeDropdownController', ['$scope', function ($scope){
@@ -15,7 +16,11 @@ vizgrimoireControllers.controller('overviewController', ['$scope', function ($sc
     
 }]);
 
-vizgrimoireControllers.controller('generalController', ['$scope', '$location', '$routeParams', function ($scope, $location, $routeParams){
+vizgrimoireControllers.controller('generalController', ['$scope', '$http', '$location', '$routeParams', function ($scope, $http, $location, $routeParams) {
+    
+    $http.get('resources/data/config.json').success(function(data){
+        $scope.config = data;
+    });
     
     $scope.location = $location;
     
@@ -36,6 +41,12 @@ vizgrimoireControllers.controller('generalController', ['$scope', '$location', '
         
 }]);
 
-vizgrimoireControllers.controller('VGWidgetController', ['$scope', function ($scope){
-    $scope.vgwidget = {title: 'SCM', help: 'Lorem ipsum ad his scripta blandit partiendo'};
+vizgrimoireControllers.controller('vgwidgetController', ['$scope', function ($scope){
+    $scope.onion = {title: 'Contributors', help: 'Contributors distribution', type: 'onion'};
+    $scope.activityagg = {title: 'Activity', help: 'Aggregated activity', type: 'activityagg'};
+    $scope.activityts = {title: 'Activity', help: 'Activity over the time', type: 'activityts'};
+}]);
+
+vizgrimoireControllers.controller('vgwdigetBodyController', ['$scope', '$http', '$location', '$routeParams', function ($scope, $http, $location, $routeParams) {
+    
 }]);

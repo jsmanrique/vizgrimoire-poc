@@ -5,9 +5,9 @@
             <i class="pull-right fa fa-chevron-right"></i>
         </accordion-heading>
         <ul class="nav nav-stacked">
-            <li><a href="#{{datasource.id}}/">OVERVIEW</a></li>
+            <li><a href="#{{datasource.id}}/">overview</a></li>
             <li ng-repeat="analysis in datasource.analysis" role="presentation">
-                <a href="#{{datasource.id}}/{{analysis}}">{{analysis | uppercase}}</a>
+                <a href="#{{datasource.id}}/{{analysis}}">{{analysis | lowercase}}</a>
             </li>
         </ul>
     </accordion-group>
