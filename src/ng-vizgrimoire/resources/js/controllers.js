@@ -46,7 +46,3 @@ vizgrimoireControllers.controller('vgwidgetController', ['$scope', function ($sc
     $scope.activityagg = {title: 'Activity', help: 'Aggregated activity', type: 'activityagg'};
     $scope.activityts = {title: 'Activity', help: 'Activity over the time', type: 'activityts'};
 }]);
-
-vizgrimoireControllers.controller('vgwdigetBodyController', ['$scope', '$http', '$location', '$routeParams', function ($scope, $http, $location, $routeParams) {
-    
-}]);

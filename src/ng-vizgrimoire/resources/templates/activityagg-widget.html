@@ -1,0 +1,14 @@
+<table class="table table-condensed" style="font-size: 0.9em;">
+    <thead class="hidden">
+        <tr>
+            <th>Activity name</th>
+            <th>Contribution</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="action in data">
+                <td><strong>{{action.name}}</strong></td>
+                <td>{{action.value}}</td>
+            </tr>
+        </tbody>
+</table>

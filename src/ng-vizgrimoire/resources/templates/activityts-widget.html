@@ -1,0 +1,17 @@
+<c3chart bindto-id="w" enable-zoom="true">
+    <chart-column ng-repeat="activity in data.activity" column-id="{{activity.name}}" column-name="{{activity.name}}"
+        column-values = "{{activity.value}}"
+        column-type="line"/>
+    <chart-column ng-repeat="people in data.people" column-id="{{people.name}}" column-name="{{people.name}}"
+        column-values = "{{people.value}}"
+        column-type="bar"/>
+    <chart-axes y="commits, added_lines, files" y2="authors"/>
+    <chart-axis-y axis-id="y"
+        axis-position="outer-middle"
+        axis-label="Actions"
+        range-min="0"/>
+    <chart-axis-y axis-id="y2"
+        axis-position="outer-middle"
+        axis-label="People"
+        range-min="0"/>
+</c3chart>
