@@ -46,17 +46,32 @@ vizgrimoireDirectives.directive('widgetBody', function ($http, $compile) {
         link: function (scope, element, attrs) {
             $http.get(getTemplate(attrs.type)).success(function (template) {
                 element.html(template);
-                //$http.get('/resources/data/).succcess(function (data) {});
-                //console.log(scope);
+                
                 var datasource = scope.datasource;
-                switch (datasource) {
-                        case 'scm':
+                switch (attrs.type) {
+                        case 'activityts':
                             var dataUrl = 'resources/data/' + datasource + '-' + attrs.type + '-data.json';
                             $http.get(dataUrl).success (function (data) {
                                 scope.data = data;
-                                //console.log(data);
+                                
                                 $compile(element.contents())(scope);
-                                //element.html().show();
+                                
+                            });
+                        case 'onion':
+                            var dataUrl = 'resources/data/' + datasource + '-' + attrs.type + '-data.json';
+                            $http.get(dataUrl).success (function (data) {
+                                scope.data = data;
+                                
+                                $compile(element.contents())(scope);
+                                
+                            });
+                        case 'activityagg':
+                            var dataUrl = 'resources/data/' + datasource + '-' + attrs.type + '-data.json';
+                            $http.get(dataUrl).success (function (data) {
+                                scope.data = data;
+                                
+                                $compile(element.contents())(scope);
+                                
                             });
                 }    
             });

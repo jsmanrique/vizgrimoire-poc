@@ -14,3 +14,13 @@
         <a href="#{{path.path}}">{{path.name}}</a>
     </li>
 </ol>
+
+
+<div class="row">
+    <div class="col-md-6" ng-controller="vgwidgetController">
+        <vgwidget widget-type="activityagg" widget-datasource="{{route.datasource}}"></vgwidget>
+    </div>
+    <div class="col-md-6" ng-controller="vgwidgetController">
+        <vgwidget widget-type="activityts" widget-datasource="{{route.datasource}}"></vgwidget>
+    </div>
+</div>

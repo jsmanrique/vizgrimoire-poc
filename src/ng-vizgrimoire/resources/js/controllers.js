@@ -12,6 +12,22 @@ vizgrimoireControllers.controller('daterangeDropdownController', ['$scope', func
     
 }]);
 
+vizgrimoireControllers.controller('dateModalController', ['$scope', '$modal', function ($scope, $modal) {
+        
+    $scope.open = function () {
+    
+        var modalInstance = $modal.open({
+            template: '<div>Modal</div>'
+        });
+        
+        modalInstance.result();
+    };
+
+}]);
+
+vizgrimoireControllers.controller('dateModalController', ['$scope', function ($scope, $modalInstance) {
+}]);
+
 vizgrimoireControllers.controller('overviewController', ['$scope', function ($scope){
     
 }]);
