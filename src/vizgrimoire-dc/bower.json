@@ -1,0 +1,13 @@
+{
+  "name": "vizgrimoire-dc",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "3.3.4"
+  },
+  "devDependencies": {
+    "chai": "~3.0.0",
+    "mocha": "~2.2.5",
+    "holderjs": "~2.8.0"
+  }
+}
