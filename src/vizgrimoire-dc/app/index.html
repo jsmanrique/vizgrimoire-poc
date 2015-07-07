@@ -46,17 +46,45 @@
     <div class="container-fluid">
       <div class="row">
         <!-- filter -->
-        <div class="col-md-2 col-md-push-10">
+        <div class="col-md-2 col-md-push-10 hidden-xs hidden-sm">
           <div class="affix affix-top">
-            <h2>Searching and filtering</h2>
-            <img src="holder.js/100px800">
+            <h2>Searching &amp; filtering</h2>
+            <p>Showing info about <b><span>{{filtered activity}}</span></b> out of <b><span>{{total activity}}</span></b></p>
+            <p class="text-center"><a href="#" type="button" class="btn btn-sm btn-primary">Reset filters</a></p>
+            <hr>
+            <form class="form-inline">
+              <div class="form-group">
+                <label for="contributorsFilter"><h3>Contributors</h3></label>
+                <input type="text" class="form-control" id="contributorsFilter" placeholder="Contributor name">
+              </div>
+            </form>
+            <p><span>Filters applied:</span></p>
+            <img src="holder.js/100px60">
+            <hr>
+            <form class="form-inline">
+              <div class="form-group">
+                <label for="organizationsFilter"><h3>Organizations</h3></label>
+                <input type="text" class="form-control" id="contributorsFilter" placeholder="Organization name">
+              </div>
+            </form>
+            <p><span>Filters applied:</span></p>
+            <img src="holder.js/100px60">
+            <hr>
+            <form class="form-inline">
+              <div class="form-group">
+                <label for="repositoriesFilter"><h3>Repositories</h3></label>
+                <input class="form-control" type="text" id="contributorsFilter" placeholder="Repository name">
+              </div>
+            </form>
+            <p><span>Filters applied:</span></p>
+            <img src="holder.js/100px60">
           </div>
         </div>
 
         <!-- content -->
-        <div class="col-md-10 col-md-pull-2">
+        <div class="col-md-10 col-md-pull-2 col-sm-12">
           <div class="row">
-            <div class="col-xs-12">
+            <div class="col-xs-8">
               <h1>
                 <form class="form-inline">
                   <div class="form-group">
@@ -68,6 +96,11 @@
                   </div>
                 </form>
               </h1>
+            </div>
+            <div class="col-xs-4 text-right">
+              <h2>Date range</h2>
+              <p><b>{{init date - end date}}</b></p>
+              <p class="hidden-md hidden-lg"><a href="#" type="button" class="btn btn-sm btn-primary">Reset filters</a></p>
             </div>
           </div>
 
