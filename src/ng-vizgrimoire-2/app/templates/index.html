@@ -1,0 +1,70 @@
+<h1>Project name / <small>overview</small></h1>
+
+<!-- SCM -->
+<div class="row">
+  <h2>Source code managament</h2>
+  <div class="col-md-2 col-sm-12">
+    <vgwidget-onion widget-datasource="scm-static" widget-metrics="authors"></vgwidget-onion>
+  </div>
+  <div class="col-sm-6 col-md-5">
+    <div class="row">
+      <vgwidget-lines widget-datasource="scm-evolutionary" widget-metrics="authors,newauthors"></vgwidget-lines>
+    </div>
+    <vgwidget-trends widget-datasource="scm-static" widget-metrics="authors,newauthors"></vgwidget-trends>
+  </div>
+  <div class="col-sm-6 col-md-5">
+    <div class="row">
+      <vgwidget-lines widget-datasource="scm-evolutionary" widget-metrics="commits"></vgwidget-lines>
+    </div>
+    <vgwidget-trends widget-datasource="scm-static" widget-metrics="commits"></vgwidget-trends>
+  </div>
+</div>
+
+<hr>
+
+<!-- ITS -->
+<div class="row">
+  <h2>Issues management</h2>
+  <div class="col-sm-4 col-md-4">
+    <div class="row">
+      <vgwidget-lines widget-datasource="its-evolutionary" widget-metrics="openers,closers"></vgwidget-lines>
+    </div>
+    <vgwidget-trends widget-datasource="its-static" widget-metrics="openers,closers"></vgwidget-trends>
+  </div>
+  <div class="col-sm-4 col-md-4">
+    <div class="row">
+      <vgwidget-lines widget-datasource="its-evolutionary" widget-metrics="opened,closed"></vgwidget-lines>
+    </div>
+    <vgwidget-trends widget-datasource="its-static" widget-metrics="opened,closed"></vgwidget-trends>
+  </div>
+  <div class="col-sm-4">
+    <div class="row">
+      <vgwidget-lines widget-datasource="its-evolutionary" widget-metrics="bmitickets"></vgwidget-lines>
+    </div>
+    <vgwidget-trends widget-datasource="its-static" widget-metrics="bmitickets"></vgwidget-trends>
+  </div>
+</div>
+
+<hr>
+
+<!-- SCR -->
+<div class="row">
+  <h2>Pull requests &amp; code review management</h2>
+  <div class="col-sm-4">
+    <div class="row">
+      <vgwidget-lines widget-datasource="scr-evolutionary" widget-metrics="submitters,mergers"></vgwidget-lines>
+    </div>
+    <vgwidget-trends widget-datasource="scr-static" widget-metrics="submitters,mergers"></vgwidget-trends>
+  </div>
+  <div class="col-sm-4">
+    <div class="row">
+      <vgwidget-lines widget-datasource="scr-evolutionary" widget-metrics="submitted,merged,abandoned"></vgwidget-lines>
+    </div>
+    <vgwidget-trends widget-datasource="scr-static" widget-metrics="submitted,merged,abandoned"></vgwidget-trends>
+  </div>
+  <div class="col-sm-4">
+    <div class="row">
+      <vgwidget-lines widget-datasource="scr-evolutionary" widget-metrics="timeto_merge_avg,timeto_merge_median"></vgwidget-lines>
+    </div>
+  </div>
+</div>

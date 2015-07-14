@@ -1,0 +1,16 @@
+{
+  "name": "ng-vizgrimoire-2",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "angular-bootstrap": "~0.13.0",
+    "angular-route": "~1.4.2",
+    "fontawesome": "~4.3.0",
+    "bootstrap-css-only": "~3.3.4",
+    "angularjs-nvd3-directives": "~0.0.7"
+  },
+  "devDependencies": {
+    "chai": "~3.0.0",
+    "mocha": "~2.2.5"
+  }
+}

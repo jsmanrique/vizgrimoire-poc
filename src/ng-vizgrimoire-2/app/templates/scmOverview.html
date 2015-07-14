@@ -1,0 +1,38 @@
+<h1><a href="#/">Project name</a> / <small>Source code activity</small></h1>
+
+<div class="row">
+  <div class="col-md-4">
+    <h2>General Activity</h2>
+    <div class="row">
+      <div class="col-lg-12">
+        <vgwidget-lines widget-datasource="scm-evolutionary" widget-metrics="commits"></vgwidget-lines>
+        <vgwidget-trends widget-datasource="scm-static" widget-metrics="commits"></vgwidget-trends>
+      </div>
+      <div class="col-lg-12">
+        <vgwidget-lines widget-datasource="scm-evolutionary" widget-metrics="files"></vgwidget-lines>
+        <vgwidget-trends widget-datasource="scm-static" widget-metrics="files"></vgwidget-trends>
+      </div>
+      <div class="col-lg-12">
+        <vgwidget-lines widget-datasource="scm-evolutionary" widget-metrics="added_lines,removed_lines"></vgwidget-lines>
+        <vgwidget-trends widget-datasource="scm-static" widget-metrics="added_lines, removed_lines"></vgwidget-trends>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <h2>Community</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="row">
+          <vgwidget-lines widget-datasource="scm-evolutionary" widget-metrics="authors,newauthors"></vgwidget-lines>
+          <vgwidget-trends widget-datasource="scm-static" widget-metrics="authors,newauthors"></vgwidget-trends>
+        </div>
+        <div class="row">
+          Demography
+        </div>
+      </div>
+      <div class="col-md-6">
+        <vgwidget-tops widget-datasource="scm-top" widget-metrics="authors,commits"></vgwidget-tops>
+      </div>
+    </div>
+  </div>
+</div>

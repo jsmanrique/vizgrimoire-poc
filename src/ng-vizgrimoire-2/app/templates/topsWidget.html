@@ -1,0 +1,52 @@
+<div ng-controller="TopsWidgetCtrl">
+  <tabset justified="true">
+    <tab heading="Last 30d">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="col-xs-11">Name</th>
+            <th class="col-xs-1">{{tops.activity}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="top in tops.top30">
+            <td>{{top.name}}</td>
+            <td>{{top.activity}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </tab>
+    <tab heading="Last 365d">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="col-xs-11">Name</th>
+            <th class="col-xs-1">{{tops.activity}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="top in tops.top365">
+            <td>{{top.name}}</td>
+            <td>{{top.activity}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </tab>
+    <tab heading="Whole history">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="col-xs-11">Name</th>
+            <th class="col-xs-1">{{tops.activity}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="top in tops.top">
+            <td>{{top.name}}</td>
+            <td>{{top.activity}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </tab>
+  </tabset>
+</div>
