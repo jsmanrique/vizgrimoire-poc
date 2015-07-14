@@ -28,10 +28,22 @@
         </div>
         <div class="row">
           Demography
+          <canvas height="320"></canvas>
+        </div>
+        <div class="row">
+          <vgwdiget-horizbars widget-datasource="scm-domains" widget-metrics="commits,authors"></vgwdiget-horizbars>
         </div>
       </div>
       <div class="col-md-6">
-        <vgwidget-tops widget-datasource="scm-top" widget-metrics="authors,commits"></vgwidget-tops>
+        <div class="row">
+          <vgwidget-tops widget-datasource="scm-top" widget-metrics="authors,commits"></vgwidget-tops>
+        </div>
+        <div class="row">
+          <vgwdiget-stackedarea widget-datasource="scm-domains" widget-metrics="commits"></vgwdiget-stackedarea>
+        </div>
+        <div class="row">
+          <vgwdiget-stackedarea widget-datasource="scm-domains" widget-metrics="authors"></vgwdiget-stackedarea>
+        </div>
       </div>
     </div>
   </div>

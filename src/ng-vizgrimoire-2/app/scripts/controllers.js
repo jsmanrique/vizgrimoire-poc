@@ -129,9 +129,71 @@ vizgrimoireControllers.controller('TopsWidgetCtrl', ['$scope', '$http', function
     dataTemp.top = top;
     dataTemp.activity = activityName;
 
-    console.log(dataTemp);
+    //console.log(dataTemp);
 
     $scope.tops = dataTemp;
+  });
+}]);
+
+vizgrimoireControllers.controller('HorizMultiBarChartCtrl', ['$scope', '$http', function($scope, $http) {
+  $http.get('data/'+$scope.datasource+'.json').success(function(data){
+
+    var metricsArray = $scope.metrics.split(',');
+    var tempData = [];
+
+    for (var i = 0; i < metricsArray.length; i++) {
+      var valuesTemp = [];
+      for (var j = 0; j < data[metricsArray[i]+'_365'].length; j++){
+        valuesTemp.push(
+          [data.name[j], data[metricsArray[i]+'_365'][j]]
+        );
+      }
+      tempData.push(
+        {key: metricsArray[i], values: valuesTemp}
+      );
+    }
+
+    $scope.horizBarsChartData = tempData;
+
+  });
+}]);
+
+vizgrimoireControllers.controller('StackedAreaWidgetCtrl', ['$scope', '$http', function($scope, $http, jsonService) {
+
+  $http.get('data/'+$scope.datasource+'.json').success(function(data){
+    var metric = $scope.metrics;
+
+    var tempData = [];
+
+    for (var i = 0; i < data.name.length; i++){
+      $http.get('data/'+data.name[i]+'-scm-dom-evolutionary.json').success(function(domainData) {
+        var valuesTemp = [];
+        for (var j = 0; j < domainData.unixtime.length; j++) {
+          valuesTemp.push([domainData.unixtime[j], domainData[metric][j]]);
+        }
+        tempData.push(
+          {
+            key: data.name[i],
+            values: valuesTemp
+          }
+        );
+      });
+    };
+
+    /*
+    for (var i = 0; i < data.name.length; i++){
+      tempData[i].key = data.name[i];
+    };
+    */
+
+    $scope.stackedAreaChartData = tempData;
+
+    $scope.xAxisTickFormatFunction = function(){
+      return function(d){
+        return d3.time.format('%e-%b-%Y')(new Date(d*1000));
+      };
+    };
+
   });
 }]);
 

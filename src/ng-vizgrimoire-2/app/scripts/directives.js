@@ -47,4 +47,26 @@ vizgrimoireDirectives.directive('vgwidgetTops', function() {
   };
 });
 
+vizgrimoireDirectives.directive('vgwdigetHorizbars', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'templates/horizMultiBarChartWidget.html',
+    scope : {
+      datasource: '@widgetDatasource',
+      metrics: '@widgetMetrics'
+    }
+  };
+});
+
+vizgrimoireDirectives.directive('vgwdigetStackedarea', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'templates/stackedAreaChartWidget.html',
+    scope : {
+      datasource: '@widgetDatasource',
+      metrics: '@widgetMetrics'
+    }
+  };
+});
+
 }());
