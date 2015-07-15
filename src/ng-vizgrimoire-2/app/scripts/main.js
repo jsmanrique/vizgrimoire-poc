@@ -5,7 +5,7 @@
 // TODO: Do it with angular instead of jquery
 $(document).ready(function(){
 
-  $('#shareOnTW').click(function(){
+  $('.shareOnTW').click(function(){
     window.location.href = 'https://twitter.com/share?url='+encodeURIComponent(document.URL)+'&text='+document.title+'&via=bitergia&hashtags=metrics,development';
   });
 
@@ -33,16 +33,8 @@ app.config(['$routeProvider', function($routeProvider){
     '/scr', {
       templateUrl: 'templates/scrOverview.html'
     }
-  ).when(
-    '/:dataSourceType/contributors', {
-      templateUrl: 'templates/datasourceContributors.html'
-    }
-  ).when(
-    '/:dataSourceType/domains', {
-      templateUrl: 'templates/datasourceDomains.html'
-    }
   ).otherwise({
-    redirectTo: '/404.html'
+    redirectTo: '/'
   });
 }]);
 

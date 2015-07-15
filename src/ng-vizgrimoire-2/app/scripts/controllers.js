@@ -156,6 +156,12 @@ vizgrimoireControllers.controller('HorizMultiBarChartCtrl', ['$scope', '$http', 
       );
     }
 
+    if (tempData[0].values.length > 10) {
+      $scope.height = 600;
+    } else {
+      $scope.height =320;
+    };
+
     $scope.horizBarsChartData = tempData;
 
   });
@@ -175,6 +181,12 @@ vizgrimoireControllers.controller('StackedAreaWidgetCtrl', ['$scope', '$http', '
       keys.push(data.name[i]);
       jsonRequests.push($http.get('data/'+data.name[i]+'-scm-dom-evolutionary.json'));
     }
+
+    if (data.name.length > 10) {
+      $scope.height = 600;
+    } else {
+      $scope.height = 320;
+    };
 
     $q.all(jsonRequests).then(function(results){
 

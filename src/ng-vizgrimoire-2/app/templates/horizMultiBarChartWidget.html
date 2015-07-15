@@ -1,13 +1,14 @@
 <div ng-controller="HorizMultiBarChartCtrl">
    <nvd3-multi-bar-horizontal-chart
     data="horizBarsChartData"
-    height="320"
+    height={{height}}
     showXAxis="true"
     showYAxis="true"
     interactive="true"
     tooltips="true"
     useInteractiveGuideline="true"
-    showLegend="true">
+    showLegend="true"
+    margin= "{left:130}">
       <svg></svg>
     </nvd3-multi-bar-horizontal-chart>
 </div>

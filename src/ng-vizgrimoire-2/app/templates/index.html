@@ -3,7 +3,7 @@
     <h1>Project name / <small>overview</small></h1>
   </div>
   <div class="col-xs-2">
-    <span>Share: <button id="shareOnTW" class="btn btn-xs btn-primary"><i class="fa fa-twitter"></i> Twitter</button>
+    <span>Share: <button class="shareOnTW btn btn-xs btn-primary"><i class="fa fa-twitter"></i> Twitter</button>
       <button id="shareUrl" class="btn btn-xs btn-success"><i class="fa fa-share"></i> Url</button><span>
   </div>
 </div>
@@ -11,7 +11,7 @@
 <!-- SCM -->
 <div class="row">
   <h2>Source code managament</h2>
-  <div class="col-md-1 col-sm-3">
+  <div class="col-md-2 col-sm-12">
     <vgwidget-onion widget-datasource="scm-static" widget-metrics="authors"></vgwidget-onion>
   </div>
   <div class="col-sm-6 col-md-4">
@@ -24,7 +24,7 @@
     <vgwidget-lines widget-datasource="scm-evolutionary" widget-metrics="commits"></vgwidget-lines>
     <vgwidget-trends widget-datasource="scm-static" widget-metrics="commits"></vgwidget-trends>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-2 col-sm-12">
     <h3>Demography</h3>
     <vgwidget-demography widget-datasource="scm"></vgwidget-demography>
   </div>
@@ -35,17 +35,17 @@
 <!-- ITS -->
 <div class="row">
   <h2>Issues management</h2>
-  <div class="col-sm-4 col-md-4">
+  <div class="col-sm-6 col-md-4">
     <h3>Debuggers evolution</h3>
     <vgwidget-lines widget-datasource="its-evolutionary" widget-metrics="openers,closers"></vgwidget-lines>
     <vgwidget-trends widget-datasource="its-static" widget-metrics="openers,closers"></vgwidget-trends>
   </div>
-  <div class="col-sm-4 col-md-4">
+  <div class="col-sm-6 col-md-4">
     <h3>Issues evolution</h3>
     <vgwidget-lines widget-datasource="its-evolutionary" widget-metrics="opened,closed"></vgwidget-lines>
     <vgwidget-trends widget-datasource="its-static" widget-metrics="opened,closed"></vgwidget-trends>
   </div>
-  <div class="col-sm-4">
+  <div class="col-sm-12 col-md-4">
     <h3>Effiency closing tickets <small>(<abbr title="Backlog Management Index">BMI</abbr>)</small></h3>
     <vgwidget-lines widget-datasource="its-evolutionary" widget-metrics="bmitickets"></vgwidget-lines>
     <vgwidget-trends widget-datasource="its-static" widget-metrics="bmitickets"></vgwidget-trends>
@@ -57,17 +57,17 @@
 <!-- SCR -->
 <div class="row">
   <h2>Pull requests &amp; code review management</h2>
-  <div class="col-sm-4">
+  <div class="col-md-4 col-sm-6">
     <h3>Pull requests submitters &amp; mergers</h3>
     <vgwidget-lines widget-datasource="scr-evolutionary" widget-metrics="submitters,mergers"></vgwidget-lines>
     <vgwidget-trends widget-datasource="scr-static" widget-metrics="submitters,mergers"></vgwidget-trends>
   </div>
-  <div class="col-sm-4">
+  <div class="col-md-4 col-sm-6">
     <h3>Pull requests evolution</h3>
     <vgwidget-lines widget-datasource="scr-evolutionary" widget-metrics="submitted,merged,abandoned"></vgwidget-lines>
     <vgwidget-trends widget-datasource="scr-static" widget-metrics="submitted,merged,abandoned"></vgwidget-trends>
   </div>
-  <div class="col-sm-4">
+  <div class="col-md-4 col-sm-12">
     <h3>Time to merge <small>(average &amp median)</small></h3>
     <vgwidget-lines widget-datasource="scr-evolutionary" widget-metrics="timeto_merge_avg,timeto_merge_median"></vgwidget-lines>
   </div>
