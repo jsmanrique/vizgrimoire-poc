@@ -158,35 +158,37 @@ vizgrimoireControllers.controller('HorizMultiBarChartCtrl', ['$scope', '$http', 
   });
 }]);
 
-vizgrimoireControllers.controller('StackedAreaWidgetCtrl', ['$scope', '$http', function($scope, $http, jsonService) {
+vizgrimoireControllers.controller('StackedAreaWidgetCtrl', ['$scope', '$http', '$q', function($scope, $http, $q) {
 
   $http.get('data/'+$scope.datasource+'.json').success(function(data){
     var metric = $scope.metrics;
 
     var tempData = [];
 
-    for (var i = 0; i < data.name.length; i++){
-      $http.get('data/'+data.name[i]+'-scm-dom-evolutionary.json').success(function(domainData) {
+    var keys = [];
+    var jsonRequests = [];
+
+    for (var i = 0; i < data.name.length; i++) {
+      keys.push(data.name[i]);
+      jsonRequests.push($http.get('data/'+data.name[i]+'-scm-dom-evolutionary.json'));
+    }
+
+    $q.all(jsonRequests).then(function(results){
+
+      for (var i = 0; i < results.length; i++) {
         var valuesTemp = [];
-        for (var j = 0; j < domainData.unixtime.length; j++) {
-          valuesTemp.push([domainData.unixtime[j], domainData[metric][j]]);
+        for (var j = 0; j < results[i].data.unixtime.length; j++) {
+          valuesTemp.push([results[i].data.unixtime[j], results[i].data[metric][j]]);
         }
-        tempData.push(
-          {
-            key: data.name[i],
-            values: valuesTemp
-          }
-        );
-      });
-    };
+        
+        tempData.push({
+          key: keys[i],
+          values: valuesTemp
+        });
+      }
 
-    /*
-    for (var i = 0; i < data.name.length; i++){
-      tempData[i].key = data.name[i];
-    };
-    */
-
-    $scope.stackedAreaChartData = tempData;
+      $scope.stackedAreaChartData = tempData;
+    });
 
     $scope.xAxisTickFormatFunction = function(){
       return function(d){
