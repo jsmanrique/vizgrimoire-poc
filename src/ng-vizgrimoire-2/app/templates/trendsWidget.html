@@ -2,8 +2,8 @@
 <div ng-controller="MetricsTrendsCtrl">
 <div ng-repeat="metric in metricsData" class="row">
   <div class="col-xs-3">{{metric.total}}<strong> {{metric.name}}</strong></div>
-  <div class="col-xs-3">{{metric.diff365}} last 365d ({{metric.percentage365}}%)</div>
-  <div class="col-xs-3">{{metric.diff30}} last 30d ({{metric.percentage30}}%)</div>
-  <div class="col-xs-3">{{metric.diff7}} last 7d ({{metric.percentage7}}%)</div>
+  <div class="col-xs-3"><span ng-style="{'color': metric.color365}">{{metric.diff365}}</span> last 365d (<span ng-style="{'color': metric.color365}">{{metric.percentage365}}%</span>)</div>
+  <div class="col-xs-3"><span ng-style="{'color': metric.color30}">{{metric.diff30}}</span> last 30d (<span ng-style="{'color': metric.color30}">{{metric.percentage30}}%</span>)</div>
+  <div class="col-xs-3"><span ng-style="{'color': metric.color7}">{{metric.diff7}}</span> last 7d (<span ng-style="{'color': metric.color7}">{{metric.percentage7}}%</span>)</div>
 </div>
 </div>

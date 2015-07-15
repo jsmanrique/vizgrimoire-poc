@@ -1,4 +1,12 @@
-<h1><a href="#/">Project name</a> / <small>Issues management activity</small></h1>
+<div class="row">
+  <div class="col-xs-10">
+    <h1><a href="#/">Project name</a> / <small>Issues management activity</small></h1>
+  </div>
+  <div class="col-xs-2">
+    <span>Share: <button id="shareOnTW" class="btn btn-xs btn-primary"><i class="fa fa-twitter"></i> Twitter</button>
+      <button id="shareUrl" class="btn btn-xs btn-success"><i class="fa fa-share"></i> Url</button><span>
+  </div>
+</div>
 
 <div class="row">
   <div class="col-md-4">
@@ -23,7 +31,8 @@
           <vgwidget-trends widget-datasource="its-static" widget-metrics="openers,closers"></vgwidget-trends>
         </div>
         <div class="row">
-          Demography
+          <h3>Demography</h3>
+          <vgwidget-demography widget-datasource="its"></vgwidget-demography>
         </div>
       </div>
       <div class="col-md-6">

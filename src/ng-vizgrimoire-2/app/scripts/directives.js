@@ -69,4 +69,14 @@ vizgrimoireDirectives.directive('vgwdigetStackedarea', function() {
   };
 });
 
+vizgrimoireDirectives.directive('vgwidgetDemography', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'templates/demographyChartWidget.html',
+    scope : {
+      datasource: '@widgetDatasource'
+    }
+  };
+});
+
 }());

@@ -1,18 +1,29 @@
-<h1><a href="#/">Project name</a> / <small>Pull requests activity</small></h1>
+<div class="row">
+  <div class="col-xs-10">
+    <h1><a href="#/">Project name</a> / <small>Pull requests activity</small></h1>
+  </div>
+  <div class="col-xs-2">
+    <span>Share: <button id="shareOnTW" class="btn btn-xs btn-primary"><i class="fa fa-twitter"></i> Twitter</button>
+      <button id="shareUrl" class="btn btn-xs btn-success"><i class="fa fa-share"></i> Url</button><span>
+  </div>
+</div>
 
 <div class="row">
   <div class="col-md-4">
     <h2>General Activity</h2>
     <div class="row">
       <div class="col-lg-12">
+        <h3>Pull requests activity</h3>
         <vgwidget-lines widget-datasource="scr-evolutionary" widget-metrics="submitted,merged,abandoned"></vgwidget-lines>
         <vgwidget-trends widget-datasource="scr-static" widget-metrics="submitted,merged,abandoned"></vgwidget-trends>
       </div>
       <div class="col-lg-12">
+        <h3>Pending pull requests evolution</h3>
         <vgwidget-lines widget-datasource="scr-evolutionary" widget-metrics="pending"></vgwidget-lines>
         <vgwidget-trends widget-datasource="scr-static" widget-metrics="pending"></vgwidget-trends>
       </div>
       <div class="col-lg-12">
+        <h3>Time to merge</h3>
         <vgwidget-lines widget-datasource="scr-evolutionary" widget-metrics="timeto_merge_avg,timeto_merge_median"></vgwidget-lines>
       </div>
     </div>
@@ -22,18 +33,22 @@
     <div class="row">
       <div class="col-md-6">
         <div class="row">
+          <h3>Submitters &amp; mergers evolution</h3>
           <vgwidget-lines widget-datasource="scr-evolutionary" widget-metrics="submitters,mergers"></vgwidget-lines>
           <vgwidget-trends widget-datasource="scr-static" widget-metrics="submitters,mergers"></vgwidget-trends>
         </div>
         <div class="row">
+          <h3>Demography</h3>
           Demography
         </div>
       </div>
       <div class="col-md-6">
         <div class="row">
+          <h3>Top submitters</h3>
           <vgwidget-tops widget-datasource="scr-top" widget-metrics="submitters,submitted"></vgwidget-tops>
         </div>
         <div class="row">
+          <h3>Top mergers</h3>
           <vgwidget-tops widget-datasource="scr-top" widget-metrics="mergers,merged"></vgwidget-tops>
         </div>
       </div>

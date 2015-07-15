@@ -19,11 +19,24 @@ body {
 }
 
 h1, h2, h3, h4, h5 {
-  font-size: 1.25em;
+  font-weight: bold;
 }
 
+h1 {
+  font-size: 2em;
+}
 h2 {
-  border-bottom: thin solid #999;
+  font-size: 1.5em;
+  border-bottom: thin solid #aaa;
+  padding-left: 15px;
+}
+
+h3 {
+  font-size: 1.2em;
+}
+
+h4, h5, h6 {
+  font-size: 1.1em;
 }
 
 .navbar-inverse {

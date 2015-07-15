@@ -49,10 +49,13 @@ vizgrimoireControllers.controller('MetricsTrendsCtrl', ['$scope', '$http', funct
         total: data[metricsArray[i]],
         diff365: data['diff_net'+metricsArray[i]+'_365'],
         percentage365: data['percentage_'+metricsArray[i]+'_365'],
+        color365: function(x){if (x >>> 0 === parseFloat(x)){return 'green';}else{return 'red';}}(data['diff_net'+metricsArray[i]+'_365']),
         diff30: data['diff_net'+metricsArray[i]+'_30'],
         percentage30: data['percentage_'+metricsArray[i]+'_30'],
+        color30: function(x){if (x >>> 0 === parseFloat(x)){return 'green';}else{return 'red';}}(data['percentage_'+metricsArray[i]+'_30']),
         diff7: data['diff_net'+metricsArray[i]+'_7'],
         percentage7: data['percentage_'+metricsArray[i]+'_7'],
+        color7: function(x){if (x >>> 0 === parseFloat(x)){return 'green';}else{return 'red';}}(data['diff_net'+metricsArray[i]+'_7']),
         });
     }
 
@@ -180,7 +183,7 @@ vizgrimoireControllers.controller('StackedAreaWidgetCtrl', ['$scope', '$http', '
         for (var j = 0; j < results[i].data.unixtime.length; j++) {
           valuesTemp.push([results[i].data.unixtime[j], results[i].data[metric][j]]);
         }
-        
+
         tempData.push({
           key: keys[i],
           values: valuesTemp
@@ -197,6 +200,70 @@ vizgrimoireControllers.controller('StackedAreaWidgetCtrl', ['$scope', '$http', '
     };
 
   });
+}]);
+
+vizgrimoireControllers.controller('DemographyChart',['$scope', '$http', '$q', function($scope, $http, $q){
+
+  var birthsRequest = $http.get('data/'+$scope.datasource+'-demographics-birth.json');
+  var agingRequest = $http.get('data/'+$scope.datasource+'-demographics-aging.json');
+
+  $q.all([birthsRequest, agingRequest]).then(function(results){
+    //console.log('birth periods: '+Math.max.apply(Math, results[0].data.persons.age)/(30*6));
+    //console.log('max age: '+Math.max.apply(Math, results[1].data.persons.age));
+
+    var births = results[0].data.persons.age;
+    var aages = results[1].data.persons.age
+
+    var max_age = Math.max.apply(Math, births);
+
+    var periods = Math.ceil(max_age / (30*6));
+
+    //console.log(periods);
+
+    var series = function(periods) {
+      var series = [];
+
+      for (var i = periods - 1; i >= 0; i--) {
+        series.push([i*6+'m',0]);
+      };
+
+      return series;
+    };
+
+    var birthSeries = series(periods);
+
+    for (var i = 0; i < births.length; i++) {
+      var birthPeriod = Math.floor(births[i] / (30*6));
+      var seriesIndex = birthSeries.length - birthPeriod - 1;
+      birthSeries[seriesIndex][1] = birthSeries[seriesIndex][1] + 1;
+    };
+
+    var ageSeries = series(periods);
+
+    for (var i = 0; i < aages.length; i++) {
+      var agePeriod = Math.floor(aages[i] / (30*6));
+      var seriesIndex = ageSeries.length - agePeriod - 1;
+      ageSeries[seriesIndex][1] = ageSeries[seriesIndex][1] + 1;
+    };
+
+    //console.log('b :'+ birthSeries);
+    //console.log('a :'+ageSeries);
+
+    var dataTemp = [
+      {
+        key: 'Engaged',
+        values: birthSeries
+      },
+      {
+        key: 'Still active',
+        values: ageSeries
+      }
+    ];
+
+    $scope.demographyChartData = dataTemp;
+
+  });
+
 }]);
 
 }());
