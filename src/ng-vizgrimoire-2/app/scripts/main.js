@@ -3,9 +3,10 @@
 'use strict';
 
 // TODO: Do it with angular instead of jquery
+/*
 $(document).ready(function(){
 
-  $('.shareOnTW').click(function(){
+  $('#shareOnTW').click(function(){
     window.location.href = 'https://twitter.com/share?url='+encodeURIComponent(document.URL)+'&text='+document.title+'&via=bitergia&hashtags=metrics,development';
   });
 
@@ -13,6 +14,7 @@ $(document).ready(function(){
     window.prompt('Copy to clipboard: CTRL+C / CMD+C, Enter', document.URL);
   });
 });
+*/
 
 var app = angular.module('ngVizGrimoire', ['ngRoute', 'ui.bootstrap', 'nvd3ChartDirectives', 'vizgrimoireControllers', 'vizgrimoireDirectives']);
 

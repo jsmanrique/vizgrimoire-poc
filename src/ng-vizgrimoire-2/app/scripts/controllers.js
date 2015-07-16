@@ -3,6 +3,24 @@
 
 var vizgrimoireControllers = angular.module('vizgrimoireControllers', []);
 
+vizgrimoireControllers.controller('ProjectNameCtrl', ['$scope', '$http', function($scope, $http) {
+  $http.get('data/scm-static.json').success(function(data){
+    var repo = data.url.substring(19);
+    $scope.projectName = repo.substring(0, repo.length-5);
+  });
+}]);
+
+vizgrimoireControllers.controller('SharingCtrl', ['$scope', function($scope) {
+  
+  $scope.shareOnTwitter = function() {
+    window.location.href = 'https://twitter.com/share?url='+encodeURIComponent(document.URL)+'&text='+document.title+'&via=bitergia&hashtags=metrics,development';
+  };
+
+  $scope.shareOnUrl = function() {
+    window.prompt('Copy to clipboard: CTRL+C / CMD+C, Enter', document.URL);
+  };
+}]);
+
 vizgrimoireControllers.controller('LinesChartCtrl', ['$scope', '$http', function ($scope, $http){
 
     $http.get('data/'+$scope.datasource+'.json').success(function(data){

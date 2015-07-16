@@ -2,7 +2,7 @@
 <html ng-app="ngVizGrimoire" lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Biterg.io Cauldron Project Dashboard by Bitergia</title>
+    <title ng-controller="ProjectNameCtrl">{{projectName}} Project Dashboard by Biterg.io Cauldron</title>
     <meta name="description" content="Custom dashboard built by Bitergia to provide GitHub analytics through Biterg.io Cauldron service">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -29,50 +29,23 @@
     <!-- section: main navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-2 col-md-3 col-xs-5">
-            <div class="navbar-header">
-              <a href="#/" class="navbar-brand" style="color: #fff;">
-                <strong>Bitergia Grimoire Dashboard</strong>
-              </a>
-            </div>
-          </div>
-          <div class="col-lg-10 col-md-9 col-xs-7">
-            <!--<ul class="nav navbar-nav">
-              <li class="dropdown" dropdown>
-                <a href class="dropdown-toggle" dropdown-toggle ng-disabled="disabled">
-                  Source code <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="#scm/">Overview</a></li>
-                  <li><a href="#scm/contributors">Contributors</a></li>
-                </ul>
-              </li>
-              <li class="dropdown" dropdown>
-                <a href class="dropdown-toggle" dropdown-toggle ng-disabled="disabled">
-                  Issues <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="#its/">Overview</a></li>
-                  <li><a href="#its/contributors">Contributors</a></li>
-                </ul>
-              </li>
-              <li class="dropdown" dropdown>
-                <a href class="dropdown-toggle" dropdown-toggle ng-disabled="disabled">
-                  Pull requests <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="#scr/">Overview</a></li>
-                  <li><a href="#scr/contributors">Contributors</a></li>
-                </ul>
-              </li>
-            </ul>-->
-            <ul class="nav navbar-nav">
-              <li><a href="#scm/">Source code</a></li>
-              <li><a href="#its/">Issues</a></li>
-              <li><a href="#scr/">Pull requests</a></li>
-            </ul>
-          </div>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="#/" class="navbar-brand" style="color: #fff;">
+            <strong>Bitergia Grimoire Dashboard</strong> <small><span class="label label-danger">beta</span></small>
+          </a>
+        </div>
+        <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
+          <ul class="nav navbar-nav">
+            <li><a href="#scm/" ng-click="navCollapsed = !navCollapsed">Source code</a></li>
+            <li><a href="#its/" ng-click="navCollapsed = !navCollapsed">Issues</a></li>
+            <li><a href="#scr/" ng-click="navCollapsed = !navCollapsed">Pull requests</a></li>
+          </ul>
         </div>
       </div>
     </nav>
@@ -85,8 +58,8 @@
     <hr>
     <div class="container">
       <footer>
-        <p>&copy; Powered by <a href="http://bitergia.com"><img src="images/bitergia.png" alt="Bitergia" height="18"></a> 2014 |
-        <a href="#" class="shareOnTW"><i class="fa fa-twitter"></i></a></p>
+        <p>&copy; Powered by <a href="http://bitergia.com"><img src="images/bitergia.png" alt="Bitergia" height="18"></a> 2015 |
+        <a href="https://twitter.com/bitergia" class="shareOnTW"><i class="fa fa-twitter"></i> @Bitergia</a></p>
       </footer>
     </div>
 

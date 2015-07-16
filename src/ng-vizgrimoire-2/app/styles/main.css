@@ -67,9 +67,17 @@ h4, h5, h6 {
   background-color: #f60;
 }
 
+.onion {
+  margin-top: 2em;
+}
+
 .onion strong {
   font-weight: bolder;
   font-size: 3em;
+}
+
+.onion strong.onion-category {
+  font-size: 2em;
 }
 
 .onion .row {
