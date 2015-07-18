@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-xs-9">
-    <h1><a href="#/"><span ng-controller="ProjectNameCtrl">{{projectName}}</span></a> / <small>Issues management activity</small></h1>
+    <h1><a href="#/"><span ng-controller="ProjectNameCtrl">{{projectName.owner}} <br> {{projectName.repository}}</span></a> / <small>Issues management activity</small></h1>
   </div>
   <div class="col-xs-3" ng-controller="SharingCtrl">
     <span>Share: <button ng-click="shareOnTwitter()" class="btn btn-xs btn-primary"><i class="fa fa-twitter"></i> Twitter</button>
