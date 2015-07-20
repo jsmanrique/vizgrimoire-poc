@@ -1,14 +1,17 @@
 <div ng-controller="LinesChartCtrl">
-   <nvd3-line-chart
+   <nvd3-line-with-focus-chart
     data="linesChartData"
     xAxisTickFormat="xAxisTickFormatFunction()"
-    height="225"
+    x2AxisTickFormat="xAxisTickFormatFunction()"
+    height="325"
+    height2="40"
     showXAxis="true"
+    showX2Axis="false"
     showYAxis="true"
     interactive="true"
     tooltips="true"
     useInteractiveGuideline="true"
     showLegend="true">
       <svg></svg>
-    </nvd3-line-chart>
+    </nvd3-line-with-focus-chart>
 </div>

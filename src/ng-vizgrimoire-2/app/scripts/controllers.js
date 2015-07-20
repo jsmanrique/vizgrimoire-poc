@@ -187,6 +187,10 @@ vizgrimoireControllers.controller('HorizMultiBarChartCtrl', ['$scope', '$http', 
 
     $scope.horizBarsChartData = tempData;
 
+    $scope.$on('elementClick.directive', function(angularEvent, event){
+      console.log(event);      
+    });
+
   });
 }]);
 
