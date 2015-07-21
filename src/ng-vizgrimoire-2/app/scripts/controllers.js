@@ -247,8 +247,6 @@ vizgrimoireControllers.controller('DemographyChart',['$scope', '$http', '$q', fu
   var agingRequest = $http.get('data/'+$scope.datasource+'-demographics-aging.json');
 
   $q.all([birthsRequest, agingRequest]).then(function(results){
-    //console.log('birth periods: '+Math.max.apply(Math, results[0].data.persons.age)/(30*6));
-    //console.log('max age: '+Math.max.apply(Math, results[1].data.persons.age));
 
     var births = results[0].data.persons.age;
     var aages = results[1].data.persons.age
@@ -257,13 +255,11 @@ vizgrimoireControllers.controller('DemographyChart',['$scope', '$http', '$q', fu
 
     var periods = Math.ceil(max_age / (30*6));
 
-    //console.log(periods);
-
     var series = function(periods) {
       var series = [];
 
       for (var i = periods - 1; i >= 0; i--) {
-        series.push([i*6+'m',0]);
+        series.push([(i*6)/12+'y',0]);
       };
 
       return series;
