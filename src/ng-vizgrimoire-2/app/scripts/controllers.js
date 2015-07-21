@@ -18,7 +18,7 @@ vizgrimoireControllers.controller('ProjectNameCtrl', ['$scope', '$http', functio
 vizgrimoireControllers.controller('SharingCtrl', ['$scope', function($scope) {
 
   $scope.shareOnTwitter = function() {
-    window.location.href = 'https://twitter.com/share?url='+encodeURIComponent(document.URL)+'&text='+document.title+'&via=bitergia&hashtags=metrics,development';
+    window.location.href = 'https://twitter.com/share?url='+encodeURIComponent(document.URL)+'&text='+document.title+'&hashtags=dev,metrics&via=biterg_cauldron';
   };
 
   $scope.shareOnUrl = function() {
@@ -188,7 +188,7 @@ vizgrimoireControllers.controller('HorizMultiBarChartCtrl', ['$scope', '$http', 
     $scope.horizBarsChartData = tempData;
 
     $scope.$on('elementClick.directive', function(angularEvent, event){
-      console.log(event);      
+      console.log(event);
     });
 
   });
