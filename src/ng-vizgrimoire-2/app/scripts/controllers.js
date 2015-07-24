@@ -28,6 +28,8 @@ vizgrimoireControllers.controller('SharingCtrl', ['$scope', function($scope) {
 
 vizgrimoireControllers.controller('LinesChartCtrl', ['$scope', '$http', function ($scope, $http){
 
+  console.log('data/'+$scope.datasource+'.json');
+
     $http.get('data/'+$scope.datasource+'.json').success(function(data){
 
         var metricsArray = $scope.metrics.split(',');
@@ -298,6 +300,12 @@ vizgrimoireControllers.controller('DemographyChart',['$scope', '$http', '$q', fu
     $scope.demographyChartData = dataTemp;
 
   });
+
+}]);
+
+vizgrimoireControllers.controller('ContributorOverviewCtrl', ['$scope', '$http', '$q', '$routeParams', function($scope, $http, $q, $routeParams){
+
+  $scope.uid = $routeParams.uid;
 
 }]);
 

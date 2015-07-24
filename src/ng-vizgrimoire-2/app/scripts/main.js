@@ -21,8 +21,12 @@ app.config(['$routeProvider', function($routeProvider){
     '/scr', {
       templateUrl: 'templates/scrOverview.html'
     }
+  ).when(
+    '/people/:uid', {
+      templateUrl: 'templates/contributorOverview.html'
+    }
   ).otherwise({
-    redirectTo: '/'
+    templateUrl: 'templates/404.html'
   });
 }]);
 
