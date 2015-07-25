@@ -54,8 +54,7 @@ vizgrimoireControllers.controller('LinesChartCtrl', ['$scope', '$http', function
 
         $scope.toolTipContentFunction = function(){
           return function(key, x, y, e, graph) {
-            return '<p>' + key + '</p>' +
-            '<p><small><strong>' +  y + '</strong> at ' + x + '</small></p>';
+            return '<small><strong>' +  y + '</strong> '+key+' on ' + x + '</small>';
           };
         };
     });
@@ -74,13 +73,16 @@ vizgrimoireControllers.controller('MetricsTrendsCtrl', ['$scope', '$http', funct
         total: data[metricsArray[i]],
         diff365: data['diff_net'+metricsArray[i]+'_365'],
         percentage365: data['percentage_'+metricsArray[i]+'_365'],
-        color365: function(x){if (x >>> 0 === parseFloat(x)){return 'green';}else{return 'red';}}(data['diff_net'+metricsArray[i]+'_365']),
+        //color365: function(x){if (x >>> 0 === parseFloat(x)){return 'green';}else{return 'red';}}(data['diff_net'+metricsArray[i]+'_365']),
+        color365: function(x){if (x > 0){return 'green';}else{return 'red';}}(data['diff_net'+metricsArray[i]+'_365']),
         diff30: data['diff_net'+metricsArray[i]+'_30'],
         percentage30: data['percentage_'+metricsArray[i]+'_30'],
-        color30: function(x){if (x >>> 0 === parseFloat(x)){return 'green';}else{return 'red';}}(data['percentage_'+metricsArray[i]+'_30']),
+        //color30: function(x){if (x >>> 0 === parseFloat(x)){return 'green';}else{return 'red';}}(data['diff_net'+metricsArray[i]+'_30']),
+        color30: function(x){if (x > 0){return 'green';}else{return 'red';}}(data['diff_net'+metricsArray[i]+'_30']),
         diff7: data['diff_net'+metricsArray[i]+'_7'],
         percentage7: data['percentage_'+metricsArray[i]+'_7'],
-        color7: function(x){if (x >>> 0 === parseFloat(x)){return 'green';}else{return 'red';}}(data['diff_net'+metricsArray[i]+'_7']),
+        //color7: function(x){if (x >>> 0 === parseFloat(x)){return 'green';}else{return 'red';}}(data['diff_net'+metricsArray[i]+'_7']),
+        color7: function(x){if (x > 0){return 'green';}else{return 'red';}}(data['diff_net'+metricsArray[i]+'_7']),
         });
     }
 
@@ -185,7 +187,7 @@ vizgrimoireControllers.controller('HorizMultiBarChartCtrl', ['$scope', '$http', 
       $scope.height = 600;
     } else {
       $scope.height =320;
-    };
+    }
 
     $scope.horizBarsChartData = tempData;
 
@@ -215,7 +217,7 @@ vizgrimoireControllers.controller('StackedAreaWidgetCtrl', ['$scope', '$http', '
       $scope.height = 600;
     } else {
       $scope.height = 320;
-    };
+    }
 
     $q.all(jsonRequests).then(function(results){
 
@@ -251,7 +253,7 @@ vizgrimoireControllers.controller('DemographyChart',['$scope', '$http', '$q', fu
   $q.all([birthsRequest, agingRequest]).then(function(results){
 
     var births = results[0].data.persons.age;
-    var aages = results[1].data.persons.age
+    var aages = results[1].data.persons.age;
 
     var max_age = Math.max.apply(Math, births);
 
@@ -262,7 +264,7 @@ vizgrimoireControllers.controller('DemographyChart',['$scope', '$http', '$q', fu
 
       for (var i = periods - 1; i >= 0; i--) {
         series.push([(i*6)/12+'y',0]);
-      };
+      }
 
       return series;
     };
@@ -273,7 +275,7 @@ vizgrimoireControllers.controller('DemographyChart',['$scope', '$http', '$q', fu
       var birthPeriod = Math.floor(births[i] / (30*6));
       var seriesIndex = birthSeries.length - birthPeriod - 1;
       birthSeries[seriesIndex][1] = birthSeries[seriesIndex][1] + 1;
-    };
+    }
 
     var ageSeries = series(periods);
 
@@ -281,7 +283,7 @@ vizgrimoireControllers.controller('DemographyChart',['$scope', '$http', '$q', fu
       var agePeriod = Math.floor(aages[i] / (30*6));
       var seriesIndex = ageSeries.length - agePeriod - 1;
       ageSeries[seriesIndex][1] = ageSeries[seriesIndex][1] + 1;
-    };
+    }
 
     //console.log('b :'+ birthSeries);
     //console.log('a :'+ageSeries);
@@ -307,6 +309,61 @@ vizgrimoireControllers.controller('ContributorOverviewCtrl', ['$scope', '$http',
 
   $scope.uid = $routeParams.uid;
 
+}]);
+
+vizgrimoireControllers.controller('PunchcardCtrl',['$scope', '$http', function($scope, $http){
+  $http.get('data/'+$scope.datasource+'.json').success(function(data){
+    var dailyMeetingsObj = data['Austin Puppet User Group'];
+    // d = [{key:pugName, values:[{x:hour,y:day,size:rsvps},..]}]
+
+    var tempData = [];
+
+    var tempValues = [];
+
+    for (var i = 0; i < 24; i++){
+      for (var j = 1; j < 8; j++) {
+        tempValues.push(
+          {
+            x: i,
+            y: j,
+            size: function(x){if (x!==0){return x;}else{return null;};}(dailyMeetingsObj[8-j][i])
+          }
+        );
+      }
+    }
+
+    tempData.push({
+      key: 'Austin Puppet User Group',
+      values: tempValues
+    });
+
+    $scope.punchcardData = tempData;
+
+    $scope.xAxisTickFormatFunction = function(){
+      return function(d){
+        return d+':00';
+      };
+    };
+
+    $scope.yAxisTickFormatFunction = function(){
+      var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+      return function(d){
+        return days[7-d];
+      };
+    };
+
+    $scope.toolTipContentFunction = function(){
+      return function(key, x, y, e, graph) {
+        console.log(e.series);
+        if (e.series.values[e.pointIndex].size !== null) {
+          return '<strong>'+e.series.values[e.pointIndex].size +'</strong> rsvp <br>on '+y+' at '+x;
+        } else {
+          return '<strong>0</strong> rsvp <br>on '+y+' at '+x;
+        }
+      };
+    };
+
+  });
 }]);
 
 }());

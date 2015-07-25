@@ -25,6 +25,10 @@ app.config(['$routeProvider', function($routeProvider){
     '/people/:uid', {
       templateUrl: 'templates/contributorOverview.html'
     }
+  ).when(
+    '/meetup', {
+      templateUrl: 'templates/meetupGroup.html'
+    }
   ).otherwise({
     templateUrl: 'templates/404.html'
   });

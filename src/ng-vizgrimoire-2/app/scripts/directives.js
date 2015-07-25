@@ -79,4 +79,15 @@ vizgrimoireDirectives.directive('vgwidgetDemography', function() {
   };
 });
 
+vizgrimoireDirectives.directive('vgwidgetPunchcard', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'templates/punchcardWidget.html',
+    scope: {
+      datasource: '@widgetDatasource',
+      metrics: '@widgetMetrics'
+    }
+  };
+});
+
 }());
