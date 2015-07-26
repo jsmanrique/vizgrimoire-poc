@@ -90,4 +90,27 @@ vizgrimoireDirectives.directive('vgwidgetPunchcard', function() {
   };
 });
 
+vizgrimoireDirectives.directive('vgwidgetMembers', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'templates/membersWidget.html',
+    scope: {
+      datasource: '@widgetDatasource',
+      metrics: '@widgetMetrics'
+    }
+  };
+});
+
+vizgrimoireDirectives.directive('vgwidgetMeetings', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'templates/topMeetingsWidget.html',
+    scope: {
+      datasource: '@widgetDatasource',
+      metrics: '@widgetMetrics'
+    }
+  };
+});
+
+
 }());

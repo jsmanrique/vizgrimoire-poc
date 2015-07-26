@@ -1,10 +1,10 @@
 <div ng-controller="OnionWidgetCtrl" class="text-center">
   <div class="row onion" ng-repeat="onion in onions">
-    <div> {{onion.name}} <br/><strong>{{onion.total}}</strong></div>
+    <div> {{onion.name}} <br/><strong>{{onion.total | number}}</strong></div>
     <div class="row">
-      <div class="col-xs-4"><strong class="onion-category">{{onion.core}}</strong><br> core</div>
-      <div class="col-xs-4"><strong class="onion-category">{{onion.regular}}</strong><br> regular</div>
-      <div class="col-xs-4"><strong class="onion-category">{{onion.casual}}</strong><br> casual</div>
+      <div class="col-xs-4"><strong class="onion-category">{{onion.core | number}}</strong><br> core</div>
+      <div class="col-xs-4"><strong class="onion-category">{{onion.regular | number}}</strong><br> regular</div>
+      <div class="col-xs-4"><strong class="onion-category">{{onion.casual | number}}</strong><br> casual</div>
     </div>
   </div>
 </div>

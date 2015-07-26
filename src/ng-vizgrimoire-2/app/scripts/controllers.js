@@ -366,4 +366,39 @@ vizgrimoireControllers.controller('PunchcardCtrl',['$scope', '$http', function($
   });
 }]);
 
+vizgrimoireControllers.controller('MembersCtrl',['$scope', '$http', function($scope, $http){
+  $http.get('data/'+$scope.datasource+'.json').success(function(data){
+
+    var tempData = [];
+    for (var i = 0; i < data['rsvps.']['name'].length; i++){
+      tempData.push({
+        name: data['rsvps.']['name'][i],
+        events: data['rsvps.']['events'][i]
+      });
+    };
+
+    $scope.tops = tempData;
+
+  });
+}]);
+
+vizgrimoireControllers.controller('TopMeetingsCtrl',['$scope', '$http', function($scope, $http){
+  $http.get('data/'+$scope.datasource+'.json').success(function(data){
+
+    var tempData = [];
+    for (var i = 0; i < data['events.']['name'].length; i++){
+      tempData.push({
+        name: data['events.']['name'][i],
+        url: data['events.']['url'][i],
+        rsvps: data['events.']['rsvps'][i]
+      });
+    };
+
+    console.log(tempData);
+
+    $scope.tops = tempData;
+
+  });
+}]);
+
 }());

@@ -1,13 +1,44 @@
+<h2>Aggregated</h2>
 <div class="row">
   <div class="col-md-4">
+    <h3>Management</h3>
+  </div>
+  <div class="col-md-4">
+    <h3>Meetings</h3>
+    <vgwidget-lines widget-datasource="eventizer-evolutionary" widget-metrics="events"></vgwidget-lines>
+    <vgwidget-trends widget-datasource="eventizer-static" widget-metrics="events"></vgwidget-trends>
+  </div>
+  <div class="col-md-4">
+    <h3>People</h3>
+    <vgwidget-lines widget-datasource="eventizer-evolutionary" widget-metrics="members,rsvps"></vgwidget-lines>
+    <vgwidget-trends widget-datasource="eventizer-static" widget-metrics="members,rsvps"></vgwidget-trends>
+  </div>
+</div>
+
+<h2>Group</h2>
+<div class="row">
+  <div class="col-md-4">
+    <h3>RSVP per day &amp hour</h3>
     <vgwidget-punchcard widget-datasource="eventizer-punchcard" widget-metrics="rsvp"></vgwidget-punchcard>
   </div>
   <div class="col-md-4">
-    <vgwidget-lines widget-datasource="Austin%20Puppet%20User%20Group-eventizer-rep-evolutionary" widget-metrics="members"></vgwidget-lines>
-    <vgwidget-trends widget-datasource="Austin%20Puppet%20User%20Group-eventizer-rep-static" widget-metrics="members"></vgwidget-trends>
-  </div>
-  <div class="col-md-4">
+    <h3>Meetings</h3>
     <vgwidget-lines widget-datasource="Austin%20Puppet%20User%20Group-eventizer-rep-evolutionary" widget-metrics="events"></vgwidget-lines>
     <vgwidget-trends widget-datasource="Austin%20Puppet%20User%20Group-eventizer-rep-static" widget-metrics="events"></vgwidget-trends>
+  </div>
+  <div class="col-md-4">
+    <h3>People</h3>
+    <vgwidget-lines widget-datasource="Austin%20Puppet%20User%20Group-eventizer-rep-evolutionary" widget-metrics="members,rsvps"></vgwidget-lines>
+    <vgwidget-trends widget-datasource="Austin%20Puppet%20User%20Group-eventizer-rep-static" widget-metrics="members,rsvps"></vgwidget-trends>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <h3>Top meetings</h3>
+    <vgwidget-members widget-datasource="Austin%20Puppet%20User%20Group-eventizer-rep-top-rsvps"></vgwidget-members>
+  </div>
+  <div class="col-md-6">
+    <h3>Top RSVPs</h3>
+    <vgwidget-meetings widget-datasource="Austin%20Puppet%20User%20Group-eventizer-rep-top-rsvps"></vgwidget-meetings>
   </div>
 </div>
