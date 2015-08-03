@@ -34,38 +34,43 @@ vizgrimoireControllers.controller('SharingCtrl', ['$scope', function($scope) {
   };
 }]);
 
-vizgrimoireControllers.controller('LinesChartCtrl', ['$scope', '$http', function ($scope, $http){
+vizgrimoireControllers.controller('TimeseriesCtrl', ['$scope', '$http', function ($scope, $http){
 
-  console.log('data/'+$scope.datasource+'.json');
-
-    $http.get('data/'+$scope.datasource+'.json').success(function(data){
-
-        var metricsArray = $scope.metrics.split(',');
-
-        var dataTemp = [];
-
-        for (var i = 0; i < metricsArray.length; i++ ){
-          var values = [];
-          for (var j = 0; j < data.unixtime.length; j++) {
-            values.push([data.unixtime[j], data[metricsArray[i]][j]]);
-          }
-          dataTemp.push({key: metricsArray[i], values: values});
-        }
-
-        $scope.linesChartData = dataTemp;
-
-        $scope.xAxisTickFormatFunction = function(){
-          return function(d){
+  $scope.options = {
+    chart: {
+      type: 'lineWithFocusChart',
+      height: 325,
+      height2: 40,
+      xAxis: {
+        tickFormat: function(d){
             return d3.time.format('%e-%b-%Y')(new Date(d*1000));
-          };
-        };
+        }
+      },
+      x2Axis: {
+        tickFormat: function(d){
+            return d3.time.format('%e-%b-%Y')(new Date(d*1000));
+        }
+      },
+      forceY: [0]
+    }
+  };
 
-        $scope.toolTipContentFunction = function(){
-          return function(key, x, y, e, graph) {
-            return '<small><strong>' +  y + '</strong> '+key+' on ' + x + '</small>';
-          };
-        };
-    });
+  $http.get('data/'+$scope.datasource+'.json').success(function(data){
+    var metricsArray = $scope.metrics.split(',');
+
+    var dataTemp = [];
+
+    for (var i = 0; i < metricsArray.length; i++ ){
+      var values = [];
+      for (var j = 0; j < data.unixtime.length; j++) {
+        values.push({x: data.unixtime[j], y: data[metricsArray[i]][j]});
+      }
+      dataTemp.push({key: metricsArray[i], values: values});
+    }
+
+    $scope.timeseriesData = dataTemp;
+
+  });
 
 }]);
 

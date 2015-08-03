@@ -9,7 +9,7 @@
 (function () {
 'use strict';
 
-var app = angular.module('ngVizGrimoire', ['ngRoute', 'ui.bootstrap', 'nvd3ChartDirectives', 'vizgrimoireControllers', 'vizgrimoireDirectives']);
+var app = angular.module('ngVizGrimoire', ['ngRoute', 'ui.bootstrap', 'nvd3', 'vizgrimoireControllers', 'vizgrimoireDirectives']);
 
 app.config(['$routeProvider', function($routeProvider){
   $routeProvider.when(
