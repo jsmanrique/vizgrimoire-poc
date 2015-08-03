@@ -1,3 +1,11 @@
+/* ========================================================================
+ * controllers.js v0.0.1
+ * Controllers
+ * ========================================================================
+ * Copyright 2015 Jose Manrique Lopez de la Fuente
+ * Licensed under MIT (/LICENSE)
+ * ======================================================================== */
+
 (function () {
 'use strict';
 
@@ -245,7 +253,7 @@ vizgrimoireControllers.controller('StackedAreaWidgetCtrl', ['$scope', '$http', '
   });
 }]);
 
-vizgrimoireControllers.controller('DemographyChart',['$scope', '$http', '$q', function($scope, $http, $q){
+vizgrimoireControllers.controller('DemographyChartCtrl',['$scope', '$http', '$q', function($scope, $http, $q){
 
   var birthsRequest = $http.get('data/'+$scope.datasource+'-demographics-birth.json');
   var agingRequest = $http.get('data/'+$scope.datasource+'-demographics-aging.json');

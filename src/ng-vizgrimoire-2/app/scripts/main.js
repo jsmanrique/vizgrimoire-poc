@@ -1,4 +1,11 @@
-// jshint devel:true
+/* ========================================================================
+ * main.js v0.0.1
+ * Router and main config
+ * ========================================================================
+ * Copyright 2015 Jose Manrique Lopez de la Fuente
+ * Licensed under MIT (/LICENSE)
+ * ======================================================================== */
+
 (function () {
 'use strict';
 

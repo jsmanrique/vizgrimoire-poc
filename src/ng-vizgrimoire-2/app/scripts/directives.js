@@ -1,9 +1,17 @@
+/* ========================================================================
+ * directives.js v0.0.1
+ * Directives
+ * ========================================================================
+ * Copyright 2015 Jose Manrique Lopez de la Fuente
+ * Licensed under MIT (/LICENSE)
+ * ======================================================================== */
+
 (function () {
 'use strict';
 
 var vizgrimoireDirectives = angular.module('vizgrimoireDirectives', []);
 
-vizgrimoireDirectives.directive('vgwidgetLines', function () {
+vizgrimoireDirectives.directive('vgwidgetTimeseries', function () {
     return {
         restrict: 'E',
         templateUrl: 'templates/linesChartWidget.html',

@@ -14,17 +14,17 @@
     <div class="row">
       <div class="col-md-6 col-lg-12">
         <h3>Pull requests activity</h3>
-        <vgwidget-lines widget-datasource="scr-evolutionary" widget-metrics="submitted,merged,abandoned"></vgwidget-lines>
+        <vgwidget-timeseries widget-datasource="scr-evolutionary" widget-metrics="submitted,merged,abandoned"></vgwidget-timeseries>
         <vgwidget-trends widget-datasource="scr-static" widget-metrics="submitted,merged,abandoned"></vgwidget-trends>
       </div>
       <div class="col-md-6 col-lg-12">
         <h3>Pending pull requests evolution</h3>
-        <vgwidget-lines widget-datasource="scr-evolutionary" widget-metrics="pending"></vgwidget-lines>
+        <vgwidget-timeseries widget-datasource="scr-evolutionary" widget-metrics="pending"></vgwidget-timeseries>
         <vgwidget-trends widget-datasource="scr-static" widget-metrics="pending"></vgwidget-trends>
       </div>
       <div class="col-md-12">
         <h3>Time to merge</h3>
-        <vgwidget-lines widget-datasource="scr-evolutionary" widget-metrics="timeto_merge_avg,timeto_merge_median"></vgwidget-lines>
+        <vgwidget-timeseries widget-datasource="scr-evolutionary" widget-metrics="timeto_merge_avg,timeto_merge_median"></vgwidget-timeseries>
       </div>
     </div>
   </div>
@@ -34,7 +34,7 @@
       <div class="col-md-6">
         <div class="row">
           <h3>Submitters &amp; mergers evolution</h3>
-          <vgwidget-lines widget-datasource="scr-evolutionary" widget-metrics="submitters,mergers"></vgwidget-lines>
+          <vgwidget-timeseries widget-datasource="scr-evolutionary" widget-metrics="submitters,mergers"></vgwidget-timeseries>
           <vgwidget-trends widget-datasource="scr-static" widget-metrics="submitters,mergers"></vgwidget-trends>
         </div>
       </div>

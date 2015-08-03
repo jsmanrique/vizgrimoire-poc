@@ -12,8 +12,8 @@
 <div ng-controller="ContributorOverviewCtrl">
   <div class="row">
     <h2>Activity</h2>
-    <vgwidget-lines widget-datasource="people-{{uid}}-scm-evolutionary" widget-metrics="commits"></vgwidget-lines>
-    <vgwidget-lines widget-datasource="people-{{uid}}-its-evolutionary" widget-metrics="closed"></vgwidget-lines>
-    <vgwidget-lines widget-datasource="people-{{uid}}-scr-evolutionary" widget-metrics=""></vgwidget-lines>
+    <vgwidget-timeseries widget-datasource="people-{{uid}}-scm-evolutionary" widget-metrics="commits"></vgwidget-timeseries>
+    <vgwidget-timeseries widget-datasource="people-{{uid}}-its-evolutionary" widget-metrics="closed"></vgwidget-timeseries>
+    <vgwidget-timeseries widget-datasource="people-{{uid}}-scr-evolutionary" widget-metrics=""></vgwidget-timeseries>
   </div>
 </div>
