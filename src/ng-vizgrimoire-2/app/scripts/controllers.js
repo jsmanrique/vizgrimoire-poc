@@ -180,6 +180,22 @@ vizgrimoireControllers.controller('TopsWidgetCtrl', ['$scope', '$http', function
 }]);
 
 vizgrimoireControllers.controller('HorizMultiBarChartCtrl', ['$scope', '$http', function($scope, $http) {
+
+  $scope.options = {
+    chart: {
+      type: 'multiBarHorizontalChart',
+      showControls: false,
+      x: function(d){return d.label;},
+      y: function(d){return d.value;},
+      margin: {left: 120},
+      yAxis: {
+        tickFormat: function(d){
+            return d3.format('0f')(d);
+        }
+      }
+    }
+  };
+
   $http.get('data/'+$scope.datasource+'.json').success(function(data){
 
     var metricsArray = $scope.metrics.split(',');
@@ -189,7 +205,7 @@ vizgrimoireControllers.controller('HorizMultiBarChartCtrl', ['$scope', '$http', 
       var valuesTemp = [];
       for (var j = 0; j < data[metricsArray[i]+'_365'].length; j++){
         valuesTemp.push(
-          [data.name[j], data[metricsArray[i]+'_365'][j]]
+          {label: data.name[j], value: data[metricsArray[i]+'_365'][j]}
         );
       }
       tempData.push(
@@ -198,16 +214,12 @@ vizgrimoireControllers.controller('HorizMultiBarChartCtrl', ['$scope', '$http', 
     }
 
     if (tempData[0].values.length > 10) {
-      $scope.height = 600;
+      $scope.options.chart.height = 600;
     } else {
-      $scope.height =320;
+      $scope.options.chart.height =320;
     }
 
     $scope.horizBarsChartData = tempData;
-
-    $scope.$on('elementClick.directive', function(angularEvent, event){
-      console.log(event);
-    });
 
   });
 }]);
