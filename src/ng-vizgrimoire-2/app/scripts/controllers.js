@@ -51,6 +51,16 @@ vizgrimoireControllers.controller('TimeseriesCtrl', ['$scope', '$http', function
             return d3.time.format('%e-%b-%Y')(new Date(d*1000));
         }
       },
+      yAxis: {
+        tickFormat: function(d) {
+          return d3.format(',.0f')(d);
+        }
+      },
+      y2Axis: {
+        tickFormat: function(d) {
+          return d3.format(',.0f')(d);
+        }
+      },
       forceY: [0],
       useInteractiveGuideline: true
     }
