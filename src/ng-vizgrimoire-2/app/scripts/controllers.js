@@ -374,6 +374,42 @@ vizgrimoireControllers.controller('ContributorOverviewCtrl', ['$scope', '$http',
 }]);
 
 vizgrimoireControllers.controller('PunchcardCtrl',['$scope', '$http', function($scope, $http){
+  $scope.options = {
+    chart: {
+      type: 'scatterChart',
+      height: 325,
+      showControls: false,
+      showDistX: false,
+      showDistY: false,
+      forceX: [0,23],
+      forceY: [1,7],
+      xAxis: {
+        showMaxMin: false,
+        tickValues: d3.range(0,23,2),
+        tickFormat: function(d){
+          return d+':00';
+        }
+      },
+      yAxis: {
+        //showMaxMin: false,
+        tickValues: d3.range(1,7),
+        tickFormat: function(d) {
+          var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+          return days[7-d];
+        }
+      },
+      tooltipContent: function(key) {
+        var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        if (key.point.size !== null) {
+          return '<strong>'+key.point.size +'</strong> rsvp <br>on '+days[7-key.point.y]+' at '+key.point.x+':00';
+        } else {
+          return '<strong>0</strong> rsvp <br>on '+days[7-key.point.y]+' at '+key.point.x+':00';
+        }
+      },
+      fisheye: 100
+    }
+  };
+
   $http.get('data/'+$scope.datasource+'.json').success(function(data){
     var dailyMeetingsObj = data['Austin Puppet User Group'];
     // d = [{key:pugName, values:[{x:hour,y:day,size:rsvps},..]}]
@@ -384,13 +420,15 @@ vizgrimoireControllers.controller('PunchcardCtrl',['$scope', '$http', function($
 
     for (var i = 0; i < 24; i++){
       for (var j = 1; j < 8; j++) {
-        tempValues.push(
-          {
-            x: i,
-            y: j,
-            size: function(x){if (x!==0){return x;}else{return null;};}(dailyMeetingsObj[8-j][i])
-          }
-        );
+        if (dailyMeetingsObj[8-j][i]!==0) {
+          tempValues.push(
+            {
+              x: i,
+              y: j,
+              size: dailyMeetingsObj[8-j][i]
+            }
+          );
+        }
       }
     }
 
@@ -400,30 +438,6 @@ vizgrimoireControllers.controller('PunchcardCtrl',['$scope', '$http', function($
     });
 
     $scope.punchcardData = tempData;
-
-    $scope.xAxisTickFormatFunction = function(){
-      return function(d){
-        return d+':00';
-      };
-    };
-
-    $scope.yAxisTickFormatFunction = function(){
-      var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-      return function(d){
-        return days[7-d];
-      };
-    };
-
-    $scope.toolTipContentFunction = function(){
-      return function(key, x, y, e, graph) {
-        console.log(e.series);
-        if (e.series.values[e.pointIndex].size !== null) {
-          return '<strong>'+e.series.values[e.pointIndex].size +'</strong> rsvp <br>on '+y+' at '+x;
-        } else {
-          return '<strong>0</strong> rsvp <br>on '+y+' at '+x;
-        }
-      };
-    };
 
   });
 }]);
@@ -455,8 +469,6 @@ vizgrimoireControllers.controller('TopMeetingsCtrl',['$scope', '$http', function
         rsvps: data['events.']['rsvps'][i]
       });
     };
-
-    console.log(tempData);
 
     $scope.tops = tempData;
 

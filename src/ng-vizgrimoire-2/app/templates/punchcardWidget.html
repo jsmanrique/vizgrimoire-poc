@@ -1,17 +1,3 @@
 <div ng-controller="PunchcardCtrl">
-  <nvd3-scatter-chart
-    data="punchcardData"
-    height="325"
-    xAxisTickFormat="xAxisTickFormatFunction()"
-    yAxisTickFormat="yAxisTickFormatFunction()"
-    showLegend="true"
-    interactive="true"
-    tooltips="true"
-    tooltip-content="toolTipContentFunction()"
-    showControls="false"
-    showDistX="false"
-    showDistY="false"
-    fisheye="100">
-    <svg></svg>
-  </nvd3-scatter-chart>
+  <nvd3 options="options" data="punchcardData"></nvd3>
 </div>
