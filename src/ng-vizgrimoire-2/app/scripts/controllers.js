@@ -51,7 +51,8 @@ vizgrimoireControllers.controller('TimeseriesCtrl', ['$scope', '$http', function
             return d3.time.format('%e-%b-%Y')(new Date(d*1000));
         }
       },
-      forceY: [0]
+      forceY: [0],
+      useInteractiveGuideline: true
     }
   };
 
