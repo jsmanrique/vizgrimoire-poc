@@ -1,13 +1,3 @@
 <div ng-controller="DemographyChartCtrl">
-  <nvd3-multi-bar-horizontal-chart
-   data="demographyChartData"
-   height="320"
-   showXAxis="true"
-   showYAxis="true"
-   interactive="true"
-   tooltips="true"
-   useInteractiveGuideline="true"
-   showLegend="true">
-     <svg></svg>
-   </nvd3-multi-bar-horizontal-chart>
+  <nvd3 options="options" data="demographicData"></nvd3>
 </div>

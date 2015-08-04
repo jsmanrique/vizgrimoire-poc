@@ -261,6 +261,16 @@ vizgrimoireControllers.controller('StackedAreaWidgetCtrl', ['$scope', '$http', '
 
 vizgrimoireControllers.controller('DemographyChartCtrl',['$scope', '$http', '$q', function($scope, $http, $q){
 
+  $scope.options = {
+    chart: {
+      type: 'multiBarHorizontalChart',
+      height: 320,
+      showControls: false,
+      x: function(d){return d.label;},
+      y: function(d){return d.value;},
+    }
+  };
+
   var birthsRequest = $http.get('data/'+$scope.datasource+'-demographics-birth.json');
   var agingRequest = $http.get('data/'+$scope.datasource+'-demographics-aging.json');
 
@@ -277,7 +287,7 @@ vizgrimoireControllers.controller('DemographyChartCtrl',['$scope', '$http', '$q'
       var series = [];
 
       for (var i = periods - 1; i >= 0; i--) {
-        series.push([(i*6)/12+'y',0]);
+        series.push({label: (i*6)/12+'y',value: 0});
       }
 
       return series;
@@ -288,7 +298,7 @@ vizgrimoireControllers.controller('DemographyChartCtrl',['$scope', '$http', '$q'
     for (var i = 0; i < births.length; i++) {
       var birthPeriod = Math.floor(births[i] / (30*6));
       var seriesIndex = birthSeries.length - birthPeriod - 1;
-      birthSeries[seriesIndex][1] = birthSeries[seriesIndex][1] + 1;
+      birthSeries[seriesIndex].value = birthSeries[seriesIndex].value + 1;
     }
 
     var ageSeries = series(periods);
@@ -296,7 +306,7 @@ vizgrimoireControllers.controller('DemographyChartCtrl',['$scope', '$http', '$q'
     for (var i = 0; i < aages.length; i++) {
       var agePeriod = Math.floor(aages[i] / (30*6));
       var seriesIndex = ageSeries.length - agePeriod - 1;
-      ageSeries[seriesIndex][1] = ageSeries[seriesIndex][1] + 1;
+      ageSeries[seriesIndex].value = ageSeries[seriesIndex].value + 1;
     }
 
     //console.log('b :'+ birthSeries);
@@ -313,7 +323,9 @@ vizgrimoireControllers.controller('DemographyChartCtrl',['$scope', '$http', '$q'
       }
     ];
 
-    $scope.demographyChartData = dataTemp;
+    console.log(dataTemp);
+
+    $scope.demographicData = dataTemp;
 
   });
 
