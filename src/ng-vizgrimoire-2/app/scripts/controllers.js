@@ -190,7 +190,7 @@ vizgrimoireControllers.controller('HorizMultiBarChartCtrl', ['$scope', '$http', 
       margin: {left: 120},
       yAxis: {
         tickFormat: function(d){
-            return d3.format('0f')(d);
+            return d3.format(',.0f')(d);
         }
       }
     }
@@ -226,6 +226,28 @@ vizgrimoireControllers.controller('HorizMultiBarChartCtrl', ['$scope', '$http', 
 
 vizgrimoireControllers.controller('StackedAreaWidgetCtrl', ['$scope', '$http', '$q', function($scope, $http, $q) {
 
+  $scope.options = {
+    chart: {
+      type: 'stackedAreaChart',
+      x: function(d){return d[0];},
+      y: function(d){return d[1];},
+      useVoronoi: true,
+      clipEdge: true,
+      useInteractiveGuideline: true,
+      xAxis: {
+        showMaxMin: false,
+        tickFormat: function(d){
+            return d3.time.format('%e-%b-%Y')(new Date(d*1000));
+        }
+      },
+      yAxis: {
+        tickFormat: function(d){
+          return d3.format(',.0f')(d);
+        }
+      }
+    }
+  };
+
   $http.get('data/'+$scope.datasource+'.json').success(function(data){
     var metric = $scope.metrics;
 
@@ -240,9 +262,9 @@ vizgrimoireControllers.controller('StackedAreaWidgetCtrl', ['$scope', '$http', '
     }
 
     if (data.name.length > 10) {
-      $scope.height = 600;
+      $scope.options.chart.height = 600;
     } else {
-      $scope.height = 320;
+      $scope.options.chart.height = 320;
     }
 
     $q.all(jsonRequests).then(function(results){
@@ -259,14 +281,8 @@ vizgrimoireControllers.controller('StackedAreaWidgetCtrl', ['$scope', '$http', '
         });
       }
 
-      $scope.stackedAreaChartData = tempData;
+      $scope.stackedData = tempData;
     });
-
-    $scope.xAxisTickFormatFunction = function(){
-      return function(d){
-        return d3.time.format('%e-%b-%Y')(new Date(d*1000));
-      };
-    };
 
   });
 }]);
@@ -334,8 +350,6 @@ vizgrimoireControllers.controller('DemographyChartCtrl',['$scope', '$http', '$q'
         values: ageSeries
       }
     ];
-
-    console.log(dataTemp);
 
     $scope.demographicData = dataTemp;
 
