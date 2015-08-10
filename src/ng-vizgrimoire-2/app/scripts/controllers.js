@@ -254,7 +254,8 @@ vizgrimoireControllers.controller('StackedAreaWidgetCtrl', ['$scope', '$http', '
         tickFormat: function(d){
           return d3.format(',.0f')(d);
         }
-      }
+      },
+      controlOptions: ['Stacked', 'Expanded']
     }
   };
 
@@ -272,7 +273,7 @@ vizgrimoireControllers.controller('StackedAreaWidgetCtrl', ['$scope', '$http', '
     }
 
     if (data.name.length > 10) {
-      $scope.options.chart.height = 600;
+      $scope.options.chart.height = 640;
     } else {
       $scope.options.chart.height = 320;
     }

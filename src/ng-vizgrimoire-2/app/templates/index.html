@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-sm-9">
-    <h1><span ng-controller="ProjectNameCtrl">{{projectName.owner}} {{projectName.repository}}</span> / <small>overview</small></h1>
+    <h1><span ng-controller="ProjectNameCtrl" ng-cloak>{{projectName.owner}} {{projectName.repository}}</span> / <small>overview</small></h1>
   </div>
   <div class="col-sm-3 text-right" ng-controller="SharingCtrl">
     <span>Share: <button ng-click="shareOnTwitter()" class="btn btn-xs btn-primary"><i class="fa fa-twitter"></i> Twitter</button>
