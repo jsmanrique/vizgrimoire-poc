@@ -236,6 +236,32 @@ vizgrimoireControllers.controller('HorizMultiBarChartCtrl', ['$scope', '$http', 
 
 vizgrimoireControllers.controller('StackedAreaWidgetCtrl', ['$scope', '$http', '$q', function($scope, $http, $q) {
 
+<<<<<<< HEAD
+=======
+  $scope.options = {
+    chart: {
+      type: 'stackedAreaChart',
+      x: function(d){return d[0];},
+      y: function(d){return d[1];},
+      useVoronoi: true,
+      clipEdge: true,
+      useInteractiveGuideline: true,
+      xAxis: {
+        showMaxMin: false,
+        tickFormat: function(d){
+            return d3.time.format('%e-%b-%Y')(new Date(d*1000));
+        }
+      },
+      yAxis: {
+        tickFormat: function(d){
+          return d3.format(',.0f')(d);
+        }
+      },
+      controlOptions: ['Stacked', 'Expanded']
+    }
+  };
+
+>>>>>>> a7931e8830a21b2e4bd883ee6755ad7bb072c2cc
   $http.get('data/'+$scope.datasource+'.json').success(function(data){
     var metric = $scope.metrics;
 
@@ -250,7 +276,11 @@ vizgrimoireControllers.controller('StackedAreaWidgetCtrl', ['$scope', '$http', '
     }
 
     if (data.name.length > 10) {
+<<<<<<< HEAD
       $scope.height = 600;
+=======
+      $scope.options.chart.height = 640;
+>>>>>>> a7931e8830a21b2e4bd883ee6755ad7bb072c2cc
     } else {
       $scope.height = 320;
     }
