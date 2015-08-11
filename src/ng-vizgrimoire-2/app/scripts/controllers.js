@@ -216,7 +216,6 @@ vizgrimoireControllers.controller('HorizMultiBarChartCtrl', ['$scope', '$http', 
       for (var j = 0; j < data[metricsArray[i]+'_365'].length; j++){
         valuesTemp.push(
           {label: data.name[j], value: data[metricsArray[i]+'_365'][j]}
-          [data.name[j], data[metricsArray[i]+'_365'][j]]
         );
       }
       tempData.push(
@@ -225,19 +224,18 @@ vizgrimoireControllers.controller('HorizMultiBarChartCtrl', ['$scope', '$http', 
     }
 
     if (tempData[0].values.length > 10) {
-      $scope.height = 600;
+      $scope.options.chart.height = 600;
     } else {
-      $scope.height =320;
+      $scope.options.chart.height =320;
     }
 
     $scope.horizBarsChartData = tempData;
+
   });
 }]);
 
 vizgrimoireControllers.controller('StackedAreaWidgetCtrl', ['$scope', '$http', '$q', function($scope, $http, $q) {
 
-<<<<<<< HEAD
-=======
   $scope.options = {
     chart: {
       type: 'stackedAreaChart',
@@ -261,7 +259,6 @@ vizgrimoireControllers.controller('StackedAreaWidgetCtrl', ['$scope', '$http', '
     }
   };
 
->>>>>>> a7931e8830a21b2e4bd883ee6755ad7bb072c2cc
   $http.get('data/'+$scope.datasource+'.json').success(function(data){
     var metric = $scope.metrics;
 
@@ -270,19 +267,18 @@ vizgrimoireControllers.controller('StackedAreaWidgetCtrl', ['$scope', '$http', '
     var keys = [];
     var jsonRequests = [];
 
-    for (var i = 0; i < data.name.length; i++) {
-      keys.push(data.name[i]);
-      jsonRequests.push($http.get('data/'+data.name[i]+'-scm-dom-evolutionary.json'));
-    }
-
     if (data.name.length > 10) {
-<<<<<<< HEAD
-      $scope.height = 600;
-=======
-      $scope.options.chart.height = 640;
->>>>>>> a7931e8830a21b2e4bd883ee6755ad7bb072c2cc
+      $scope.options.chart.height = 600;
+      for (var i = 0; i < 10; i++) {
+        keys.push(data.name[i]);
+        jsonRequests.push($http.get('data/'+data.name[i]+'-scm-dom-evolutionary.json'));
+      }
     } else {
-      $scope.height = 320;
+      $scope.options.chart.height = 320;
+      for (var i = 0; i < data.name.length; i++) {
+        keys.push(data.name[i]);
+        jsonRequests.push($http.get('data/'+data.name[i]+'-scm-dom-evolutionary.json'));
+      }
     }
 
     $q.all(jsonRequests).then(function(results){
@@ -299,19 +295,23 @@ vizgrimoireControllers.controller('StackedAreaWidgetCtrl', ['$scope', '$http', '
         });
       }
 
-      $scope.stackedAreaChartData = tempData;
+      $scope.stackedData = tempData;
     });
-
-    $scope.xAxisTickFormatFunction = function(){
-      return function(d){
-        return d3.time.format('%e-%b-%Y')(new Date(d*1000));
-      };
-    };
 
   });
 }]);
 
-vizgrimoireControllers.controller('DemographyChart',['$scope', '$http', '$q', function($scope, $http, $q){
+vizgrimoireControllers.controller('DemographyChartCtrl',['$scope', '$http', '$q', function($scope, $http, $q){
+
+  $scope.options = {
+    chart: {
+      type: 'multiBarHorizontalChart',
+      height: 320,
+      showControls: false,
+      x: function(d){return d.label;},
+      y: function(d){return d.value;},
+    }
+  };
 
   var birthsRequest = $http.get('data/'+$scope.datasource+'-demographics-birth.json');
   var agingRequest = $http.get('data/'+$scope.datasource+'-demographics-aging.json');
@@ -329,7 +329,7 @@ vizgrimoireControllers.controller('DemographyChart',['$scope', '$http', '$q', fu
       var series = [];
 
       for (var i = periods - 1; i >= 0; i--) {
-        series.push([(i*6)/12+'y',0]);
+        series.push({label: (i*6)/12+'y',value: 0});
       }
 
       return series;
@@ -340,7 +340,7 @@ vizgrimoireControllers.controller('DemographyChart',['$scope', '$http', '$q', fu
     for (var i = 0; i < births.length; i++) {
       var birthPeriod = Math.floor(births[i] / (30*6));
       var seriesIndex = birthSeries.length - birthPeriod - 1;
-      birthSeries[seriesIndex][1] = birthSeries[seriesIndex][1] + 1;
+      birthSeries[seriesIndex].value = birthSeries[seriesIndex].value + 1;
     }
 
     var ageSeries = series(periods);
@@ -348,7 +348,7 @@ vizgrimoireControllers.controller('DemographyChart',['$scope', '$http', '$q', fu
     for (var i = 0; i < aages.length; i++) {
       var agePeriod = Math.floor(aages[i] / (30*6));
       var seriesIndex = ageSeries.length - agePeriod - 1;
-      ageSeries[seriesIndex][1] = ageSeries[seriesIndex][1] + 1;
+      ageSeries[seriesIndex].value = ageSeries[seriesIndex].value + 1;
     }
 
     //console.log('b :'+ birthSeries);
@@ -365,7 +365,7 @@ vizgrimoireControllers.controller('DemographyChart',['$scope', '$http', '$q', fu
       }
     ];
 
-    $scope.demographyChartData = dataTemp;
+    $scope.demographicData = dataTemp;
 
   });
 
@@ -378,6 +378,42 @@ vizgrimoireControllers.controller('ContributorOverviewCtrl', ['$scope', '$http',
 }]);
 
 vizgrimoireControllers.controller('PunchcardCtrl',['$scope', '$http', function($scope, $http){
+  $scope.options = {
+    chart: {
+      type: 'scatterChart',
+      height: 325,
+      showControls: false,
+      showDistX: false,
+      showDistY: false,
+      forceX: [0,23],
+      forceY: [1,7],
+      xAxis: {
+        showMaxMin: false,
+        tickValues: d3.range(0,23,2),
+        tickFormat: function(d){
+          return d+':00';
+        }
+      },
+      yAxis: {
+        //showMaxMin: false,
+        tickValues: d3.range(1,7),
+        tickFormat: function(d) {
+          var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+          return days[7-d];
+        }
+      },
+      tooltipContent: function(key) {
+        var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        if (key.point.size !== null) {
+          return '<strong>'+key.point.size +'</strong> rsvp <br>on '+days[7-key.point.y]+' at '+key.point.x+':00';
+        } else {
+          return '<strong>0</strong> rsvp <br>on '+days[7-key.point.y]+' at '+key.point.x+':00';
+        }
+      },
+      fisheye: 100
+    }
+  };
+
   $http.get('data/'+$scope.datasource+'.json').success(function(data){
     var dailyMeetingsObj = data['Austin Puppet User Group'];
     // d = [{key:pugName, values:[{x:hour,y:day,size:rsvps},..]}]
@@ -388,13 +424,15 @@ vizgrimoireControllers.controller('PunchcardCtrl',['$scope', '$http', function($
 
     for (var i = 0; i < 24; i++){
       for (var j = 1; j < 8; j++) {
-        tempValues.push(
-          {
-            x: i,
-            y: j,
-            size: function(x){if (x!==0){return x;}else{return null;};}(dailyMeetingsObj[8-j][i])
-          }
-        );
+        if (dailyMeetingsObj[8-j][i]!==0) {
+          tempValues.push(
+            {
+              x: i,
+              y: j,
+              size: dailyMeetingsObj[8-j][i]
+            }
+          );
+        }
       }
     }
 
@@ -404,30 +442,6 @@ vizgrimoireControllers.controller('PunchcardCtrl',['$scope', '$http', function($
     });
 
     $scope.punchcardData = tempData;
-
-    $scope.xAxisTickFormatFunction = function(){
-      return function(d){
-        return d+':00';
-      };
-    };
-
-    $scope.yAxisTickFormatFunction = function(){
-      var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-      return function(d){
-        return days[7-d];
-      };
-    };
-
-    $scope.toolTipContentFunction = function(){
-      return function(key, x, y, e, graph) {
-        console.log(e.series);
-        if (e.series.values[e.pointIndex].size !== null) {
-          return '<strong>'+e.series.values[e.pointIndex].size +'</strong> rsvp <br>on '+y+' at '+x;
-        } else {
-          return '<strong>0</strong> rsvp <br>on '+y+' at '+x;
-        }
-      };
-    };
 
   });
 }]);
