@@ -12,8 +12,11 @@
 <div ng-controller="ContributorOverviewCtrl">
   <div class="row">
     <h2>Activity</h2>
+    <h3>Activity on source code</h3>
     <vgwidget-timeseries widget-datasource="people-{{uid}}-scm-evolutionary" widget-metrics="commits"></vgwidget-timeseries>
+    <h3>Activity on issues management</h3>
     <vgwidget-timeseries widget-datasource="people-{{uid}}-its-evolutionary" widget-metrics="closed"></vgwidget-timeseries>
+    <h3>Activity on pull requests</h3>
     <vgwidget-timeseries widget-datasource="people-{{uid}}-scr-evolutionary" widget-metrics=""></vgwidget-timeseries>
   </div>
 </div>

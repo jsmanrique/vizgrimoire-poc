@@ -1,9 +1,9 @@
 
-<div ng-controller="MetricsTrendsCtrl">
+<div ng-controller="MetricsTrendsCtrl" style="padding: 15px 15px 0px 15px;">
 <div ng-repeat="metric in metricsData" class="row">
-  <div class="col-xs-3"><span style="font-size: 1.5em;">{{metric.total | number}}</span><strong> {{metric.name}}</strong></div>
-  <div class="col-xs-3"><span ng-style="{'color': metric.color365}">{{metric.diff365}}</span> last 365d (<span ng-style="{'color': metric.color365}">{{metric.percentage365}}%</span>)</div>
-  <div class="col-xs-3"><span ng-style="{'color': metric.color30}">{{metric.diff30}}</span> last 30d (<span ng-style="{'color': metric.color30}">{{metric.percentage30}}%</span>)</div>
-  <div class="col-xs-3"><span ng-style="{'color': metric.color7}">{{metric.diff7}}</span> last 7d (<span ng-style="{'color': metric.color7}">{{metric.percentage7}}%</span>)</div>
+  <div class="col-xs-3"><span style="font-size: 1.5em;"><b>{{metric.total | number}}</b></span><strong> {{metric.name}}</strong></div>
+  <div class="col-xs-3"><span ng-style="{'color': metric.color365}">{{metric.diff365 | number}}</span> <i ng-style="{'color': metric.color365}" class="fa fa-chevron-circle-{{metric.trend365}}"></i> last 365d (<span ng-style="{'color': metric.color365}">{{metric.percentage365}}%</span>)</div>
+  <div class="col-xs-3"><span ng-style="{'color': metric.color30}">{{metric.diff30  | number}}</span> <i ng-style="{'color': metric.color30}" class="fa fa-chevron-circle-{{metric.trend30}}"></i> last 30d (<span ng-style="{'color': metric.color30}">{{metric.percentage30}}%</span>)</div>
+  <div class="col-xs-3"><span ng-style="{'color': metric.color7}">{{metric.diff7  | number}}</span> <i ng-style="{'color': metric.color7}" class="fa fa-chevron-circle-{{metric.trend7}}"></i> last 7d (<span ng-style="{'color': metric.color7}">{{metric.percentage7}}%</span>)</div>
 </div>
 </div>
