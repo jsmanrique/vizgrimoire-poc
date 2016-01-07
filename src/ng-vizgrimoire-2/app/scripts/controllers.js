@@ -247,7 +247,7 @@ vizgrimoireControllers.controller('StackedAreaWidgetCtrl', ['$scope', '$http', '
       xAxis: {
         showMaxMin: false,
         tickFormat: function(d){
-            return d3.time.format('%e-%b-%Y')(new Date(d*1000));
+            return d3.time.format('%b-%Y')(new Date(d*1000));
         }
       },
       yAxis: {
