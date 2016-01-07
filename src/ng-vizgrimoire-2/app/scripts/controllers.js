@@ -239,11 +239,11 @@ vizgrimoireControllers.controller('StackedAreaWidgetCtrl', ['$scope', '$http', '
   $scope.options = {
     chart: {
       type: 'stackedAreaChart',
+      useInteractiveGuideline: true,
       x: function(d){return d[0];},
       y: function(d){return d[1];},
-      useVoronoi: true,
-      clipEdge: true,
-      useInteractiveGuideline: true,
+      /*useVoronoi: true,
+      clipEdge: true,*/
       xAxis: {
         showMaxMin: false,
         tickFormat: function(d){
@@ -255,7 +255,15 @@ vizgrimoireControllers.controller('StackedAreaWidgetCtrl', ['$scope', '$http', '
           return d3.format(',.0f')(d);
         }
       },
-      controlOptions: ['Stacked', 'Expanded']
+      controlOptions: ['Stacked', 'Expanded'],
+      interactiveLayer: {
+        tooltip: {
+          headerFormatter: function (d) { return d }
+        }
+      },
+      legend: {
+        vers: 'furious'
+      }
     }
   };
 
