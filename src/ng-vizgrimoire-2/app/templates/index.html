@@ -1,13 +1,3 @@
-<div class="row">
-  <div class="col-sm-9">
-    <h1><span ng-controller="ProjectNameCtrl" ng-cloak>{{projectName.owner}} {{projectName.repository}}</span> / <small>overview</small></h1>
-  </div>
-  <div class="col-sm-3 text-right" ng-controller="SharingCtrl">
-    <span>Share: <button ng-click="shareOnTwitter()" class="btn btn-xs btn-primary"><i class="fa fa-twitter"></i> Twitter</button>
-      <button ng-click="shareOnUrl()" class="btn btn-xs btn-success"><i class="fa fa-share"></i> Url</button><span>
-  </div>
-</div>
-
 <!-- SCM -->
 <div class="row">
   <h2>Source code managament</h2>
@@ -46,7 +36,7 @@
     <vgwidget-trends widget-datasource="its-static" widget-metrics="opened,closed"></vgwidget-trends>
   </div>
   <div class="col-sm-12 col-md-4">
-    <h3>Effiency closing tickets <small>(<abbr title="Backlog Management Index">BMI</abbr>)</small></h3>
+    <h3>Effiency (<abbr title="percentage">%</abbr>) closing tickets <small>(<abbr title="Backlog Management Index">BMI</abbr>)</small></h3>
     <vgwidget-timeseries widget-datasource="its-evolutionary" widget-metrics="bmitickets"></vgwidget-timeseries>
     <vgwidget-trends widget-datasource="its-static" widget-metrics="bmitickets"></vgwidget-trends>
   </div>
@@ -68,7 +58,7 @@
     <vgwidget-trends widget-datasource="scr-static" widget-metrics="submitted,merged,abandoned"></vgwidget-trends>
   </div>
   <div class="col-md-4 col-sm-12">
-    <h3>Time to merge <small>(average &amp median)</small></h3>
+    <h3>Time to merge (days) <small>(average &amp median)</small></h3>
     <vgwidget-timeseries widget-datasource="scr-evolutionary" widget-metrics="timeto_merge_avg,timeto_merge_median"></vgwidget-timeseries>
   </div>
 </div>

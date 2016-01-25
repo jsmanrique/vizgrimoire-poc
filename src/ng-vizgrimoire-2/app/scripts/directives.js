@@ -14,7 +14,7 @@ var vizgrimoireDirectives = angular.module('vizgrimoireDirectives', []);
 vizgrimoireDirectives.directive('vgwidgetTimeseries', function () {
     return {
         restrict: 'E',
-        templateUrl: 'templates/linesChartWidget.html',
+        templateUrl: 'templates/widgets/linesChartWidget.html',
         scope: {
             datasource: '@widgetDatasource',
             metrics: '@widgetMetrics'
@@ -25,7 +25,7 @@ vizgrimoireDirectives.directive('vgwidgetTimeseries', function () {
 vizgrimoireDirectives.directive('vgwidgetTrends', function() {
   return {
     restrict: 'E',
-    templateUrl: 'templates/trendsWidget.html',
+    templateUrl: 'templates/widgets/trendsWidget.html',
     scope : {
       datasource: '@widgetDatasource',
       metrics: '@widgetMetrics'
@@ -36,7 +36,7 @@ vizgrimoireDirectives.directive('vgwidgetTrends', function() {
 vizgrimoireDirectives.directive('vgwidgetOnion', function() {
   return {
     restrict: 'E',
-    templateUrl: 'templates/onionWidget.html',
+    templateUrl: 'templates/widgets/onionWidget.html',
     scope : {
       datasource: '@widgetDatasource',
       metrics: '@widgetMetrics'
@@ -47,7 +47,7 @@ vizgrimoireDirectives.directive('vgwidgetOnion', function() {
 vizgrimoireDirectives.directive('vgwidgetTops', function() {
   return {
     restrict: 'E',
-    templateUrl: 'templates/topsWidget.html',
+    templateUrl: 'templates/widgets/topsWidget.html',
     scope : {
       datasource: '@widgetDatasource',
       metrics: '@widgetMetrics'
@@ -58,7 +58,7 @@ vizgrimoireDirectives.directive('vgwidgetTops', function() {
 vizgrimoireDirectives.directive('vgwdigetHorizbars', function() {
   return {
     restrict: 'E',
-    templateUrl: 'templates/horizMultiBarChartWidget.html',
+    templateUrl: 'templates/widgets/horizMultiBarChartWidget.html',
     scope : {
       datasource: '@widgetDatasource',
       metrics: '@widgetMetrics'
@@ -69,7 +69,7 @@ vizgrimoireDirectives.directive('vgwdigetHorizbars', function() {
 vizgrimoireDirectives.directive('vgwdigetStackedarea', function() {
   return {
     restrict: 'E',
-    templateUrl: 'templates/stackedAreaChartWidget.html',
+    templateUrl: 'templates/widgets/stackedAreaChartWidget.html',
     scope : {
       datasource: '@widgetDatasource',
       metrics: '@widgetMetrics'
@@ -80,7 +80,7 @@ vizgrimoireDirectives.directive('vgwdigetStackedarea', function() {
 vizgrimoireDirectives.directive('vgwidgetDemography', function() {
   return {
     restrict: 'E',
-    templateUrl: 'templates/demographyChartWidget.html',
+    templateUrl: 'templates/widgets/demographyChartWidget.html',
     scope : {
       datasource: '@widgetDatasource'
     }
@@ -90,7 +90,7 @@ vizgrimoireDirectives.directive('vgwidgetDemography', function() {
 vizgrimoireDirectives.directive('vgwidgetPunchcard', function() {
   return {
     restrict: 'E',
-    templateUrl: 'templates/punchcardWidget.html',
+    templateUrl: 'templates/widgets/punchcardWidget.html',
     scope: {
       datasource: '@widgetDatasource',
       metrics: '@widgetMetrics'
@@ -101,7 +101,7 @@ vizgrimoireDirectives.directive('vgwidgetPunchcard', function() {
 vizgrimoireDirectives.directive('vgwidgetMembers', function() {
   return {
     restrict: 'E',
-    templateUrl: 'templates/membersWidget.html',
+    templateUrl: 'templates/widgets/membersWidget.html',
     scope: {
       datasource: '@widgetDatasource',
       metrics: '@widgetMetrics'
@@ -112,7 +112,7 @@ vizgrimoireDirectives.directive('vgwidgetMembers', function() {
 vizgrimoireDirectives.directive('vgwidgetMeetings', function() {
   return {
     restrict: 'E',
-    templateUrl: 'templates/topMeetingsWidget.html',
+    templateUrl: 'templates/widgets/topMeetingsWidget.html',
     scope: {
       datasource: '@widgetDatasource',
       metrics: '@widgetMetrics'

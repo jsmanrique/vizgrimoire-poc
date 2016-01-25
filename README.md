@@ -24,7 +24,7 @@ There are currently several PoC in the `src`folder:
 
 * **vizgrimore-dc**, layout for new generation Vizgrimoire Dashboards based on DC.js and Crossfilter used for [NG Grimoire Dashoards preview](http://projects.bitergia.com/previews/ng)
 
-* **ng-vizgrimore-2**, update of previous work on _ng-vizgrimoire_, with new Yeoman based workflow and current testbed for [NG VizGrimoire for GitHub](http://github.com/bitergia/ng-vizgrimoire-github) project
+* **ng-vizgrimore-2**, update of previous work on _ng-vizgrimoire_, with new Yeoman based workflow and current testbed for [NG VizGrimoire for GitHub](http://github.com/Bitergia/ng-vizgrimoire-github) project
 
 Usage
 -----

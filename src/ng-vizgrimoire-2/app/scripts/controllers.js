@@ -17,8 +17,10 @@ vizgrimoireControllers.controller('ProjectNameCtrl', ['$scope', '$http', functio
 
     $scope.projectName = {
       owner: repo[0],
-      repository: repo[1].substring(0, repo[1].length-4)
+      repository: repo[1].substring(0, repo[1].length-4),
+      lastUpdate: data.last_date
     };
+    console.log($scope.projectName.lastUpdate);
 
   });
 }]);
@@ -43,12 +45,12 @@ vizgrimoireControllers.controller('TimeseriesCtrl', ['$scope', '$http', function
       height2: 40,
       xAxis: {
         tickFormat: function(d){
-            return d3.time.format('%e-%b-%Y')(new Date(d*1000));
+            return d3.time.format('%b-%Y')(new Date(d*1000));
         }
       },
       x2Axis: {
         tickFormat: function(d){
-            return d3.time.format('%e-%b-%Y')(new Date(d*1000));
+            return d3.time.format('%b-%Y')(new Date(d*1000));
         }
       },
       yAxis: {

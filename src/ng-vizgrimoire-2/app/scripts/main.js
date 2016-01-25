@@ -36,6 +36,10 @@ app.config(['$routeProvider', function($routeProvider){
     '/meetup', {
       templateUrl: 'templates/meetupGroup.html'
     }
+  ).when(
+    '/about', {
+      templateUrl: 'templates/about.html'
+    }
   ).otherwise({
     templateUrl: 'templates/404.html'
   });
