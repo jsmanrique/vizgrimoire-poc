@@ -21,48 +21,11 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body class="main">
+  <body class="shared">
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
-    <!-- section: main navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a href="#/" class="navbar-brand">
-            <img src="/images/bitergia-gh-analytics.png" alt="Bitergia GitHub Development Analytics" height="48px">
-            <span ng-controller="ProjectNameCtrl" ng-cloak><small>for</small> {{projectName.owner}}/{{projectName.repository}}</span>
-          </a>
-        </div>
-        <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
-          <ul class="nav navbar-nav">
-            <li><a href="#scm/" ng-click="navCollapsed = !navCollapsed">Source code</a></li>
-            <li><a href="#its/" ng-click="navCollapsed = !navCollapsed">Issues</a></li>
-            <li><a href="#scr/" ng-click="navCollapsed = !navCollapsed">Pull requests</a></li>
-            <li><a href="#about/" ng-click="navCollapsed = !navCollapsed">About</a></li>
-          </ul>
-          <a href="http://biterg.io" class="btn bt-default navbar-btn pull-right"><strong>Create your own report &raquo;</strong></a>
-        </div>
-      </div>
-    </nav>
-
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-9" ng-controller="ProjectNameCtrl" ng-cloak>
-          <p><small>Last report update: <em>{{projectName.lastUpdate}}</em></small></p>
-        </div>
-        <div class="col-sm-3 text-right" ng-controller="SharingCtrl">
-          <span>Share: <button ng-click="shareOnTwitter()" class="btn btn-xs btn-primary"><i class="fa fa-twitter"></i> Twitter</button>
-            <button ng-click="shareOnUrl()" class="btn btn-xs btn-success"><i class="fa fa-share"></i> Url</button><span>
-        </div>
-      </div>
       <div ng-view ng-cloak><div class="text-center"><i class="fa fa-spinner fa-pulse fa-3x"></i></div></div>
     </div>
 
@@ -70,8 +33,9 @@
     <hr>
     <div class="container">
       <footer>
-        <p>Powered by <a href="http://bitergia.com"><img src="images/bitergia.png" alt="Bitergia" height="18"></a> &copy; 2015 |
-        <a href="https://twitter.com/biterg_cauldron" class="shareOnTW"><i class="fa fa-twitter"></i> @biterg_cauldron</a></p>
+        <p class="report-info" ng-controller="ProjectNameCtrl"><a href="{{projectName.dashboard}}" target="_blank">{{projectName.owner}}/{{projectName.repository}}</a> - Last report update: <em>{{projectName.lastUpdate}}</em>
+        - Powered by <a href="http://bitergia.com"><img src="images/bitergia.png" alt="Bitergia" height="10"></a> &copy; 2015 |
+        <a href="https://twitter.com/bitergia" class="shareOnTW"><i class="fa fa-twitter"></i> @biterg_cauldron</a></p>
       </footer>
     </div>
 

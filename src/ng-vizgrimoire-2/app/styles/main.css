@@ -2,6 +2,9 @@ body {
   background: #fafafa;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
+}
+
+body.main {
   padding-top: 70px;
 }
 
@@ -88,4 +91,25 @@ h3, h4, h5, h6 {
 
 .onion .row {
   border-top: thin solid #333;
+}
+
+.onion small {
+  font-size: .75em;
+  color: #666;
+}
+
+.shared .sharing-chart-btn {
+  display: none;
+}
+.shared footer {
+  margin: 0 auto;
+  padding: 0 auto;
+  font-size: .5em;
+}
+.shared hr {
+  margin: 0 auto;
+  padding: 0 auto;
+}
+.main .report-info {
+  display: none;
 }

@@ -121,4 +121,41 @@ vizgrimoireDirectives.directive('vgwidgetMeetings', function() {
 });
 
 
+vizgrimoireDirectives.directive('vgwidgetChart', ['$routeParams', function($routeParams) {
+  return {
+    restrict: 'E',
+    templateUrl: function (elem, attr) {
+      switch ($routeParams.widget) {
+        case 'timeseries':
+          return 'templates/widgets/linesChartWidget.html';
+          break;
+        case 'trends':
+          return 'templates/widgets/trendsWidget.html';
+          break;
+        case 'onion':
+          return 'templates/widgets/onionWidget.html';
+          break;
+        case 'tops':
+          return 'templates/widgets/topsWidget.html';
+          break;
+        case 'horizbars':
+          return 'templates/widgets/horizMultiBarChartWidget.html';
+          break;
+        case 'stackedarea':
+          return 'templates/widgets/stackedAreaChartWidget.html';
+          break;
+        case 'demography':
+          return 'templates/widgets/demographyChartWidget.html';
+          break;
+        default:
+
+      }
+    },
+    scope: {
+      datasource: '@widgetDatasource',
+      metrics: '@widgetMetrics'
+    }
+  };
+}]);
+
 }());

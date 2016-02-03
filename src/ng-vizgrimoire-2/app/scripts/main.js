@@ -40,6 +40,10 @@ app.config(['$routeProvider', function($routeProvider){
     '/about', {
       templateUrl: 'templates/about.html'
     }
+  ).when(
+    '/chart/:widget/:datasource', {
+      templateUrl: 'templates/chart.html'
+    }
   ).otherwise({
     templateUrl: 'templates/404.html'
   });
